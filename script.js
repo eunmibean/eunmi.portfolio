@@ -81,7 +81,7 @@ function initializeScrollAnimations() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.project-card, .timeline-item, .skills-category, .about-stats .stat');
+    const animateElements = document.querySelectorAll('.project-card, .timeline-item, .skills-table-container, .about-stats .stat, .key-skill-card');
     animateElements.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(20px)';
