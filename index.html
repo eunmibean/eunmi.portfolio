@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header with Navigation -->
+    <!-- Fixed Header with Navigation -->
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -16,42 +16,40 @@
             </div>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#" class="nav-link active" data-tab="home">Home</a></li>
-                    <li><a href="#" class="nav-link" data-tab="about">About</a></li>
-                    <li><a href="#" class="nav-link" data-tab="experience">Experience</a></li>
-                    <li><a href="#" class="nav-link" data-tab="projects">Projects</a></li>
-                    <li><a href="#" class="nav-link" data-tab="skills">Skills</a></li>
-                    <li><a href="#" class="nav-link" data-tab="contact">Contact</a></li>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Single Page Scroll Layout -->
     <main class="main">
-        <!-- Home Section -->
-        <section id="home" class="tab-content active">
-            <div class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <!-- Replace with your information -->
-                        <h2 class="hero-title">Hi, I'm <span class="highlight">Your Name</span></h2>
-                        <p class="hero-subtitle">Full Stack Developer & UI/UX Designer</p>
-                        <p class="hero-description">
-                            I create beautiful, functional, and user-friendly web applications.
-                            Passionate about clean code and innovative solutions.
-                        </p>
-                        <div class="hero-actions">
-                            <a href="#" class="btn primary" data-tab="projects">View Projects</a>
-                            <a href="#" class="btn secondary" data-tab="contact">Get in Touch</a>
-                        </div>
+        <!-- Hero/Home Section -->
+        <section id="home" class="section hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Replace with your information -->
+                    <h2 class="hero-title">Hi, I'm <span class="highlight">Your Name</span></h2>
+                    <p class="hero-subtitle">Full Stack Developer & UI/UX Designer</p>
+                    <p class="hero-description">
+                        I create beautiful, functional, and user-friendly web applications.
+                        Passionate about clean code and innovative solutions.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn primary">View Projects</a>
+                        <a href="#contact" class="btn secondary">Get in Touch</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="tab-content">
+        <section id="about" class="section">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
@@ -90,7 +88,7 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="tab-content">
+        <section id="experience" class="section">
             <div class="container">
                 <h2 class="section-title">Experience</h2>
                 <div class="timeline">
@@ -138,7 +136,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="tab-content">
+        <section id="projects" class="section">
             <div class="container">
                 <h2 class="section-title">Projects</h2>
                 <div class="projects-grid">
@@ -204,7 +202,7 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="tab-content">
+        <section id="skills" class="section">
             <div class="container">
                 <h2 class="section-title">Skills</h2>
                 <div class="skills-content">
@@ -248,7 +246,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="tab-content">
+        <section id="contact" class="section">
             <div class="container">
                 <h2 class="section-title">Contact Me</h2>
                 <div class="contact-content">

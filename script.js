@@ -2,72 +2,92 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the website
-    initializeNavigation();
+    initializeScrollNavigation();
     initializeContactForm();
     initializeSmoothScrolling();
+    initializeScrollAnimations();
 
-    // Show home tab by default
-    showTab('home');
+    // Set initial active nav link
+    updateActiveNavLink();
 });
 
-// Navigation functionality
-function initializeNavigation() {
+// Scroll-based navigation functionality
+function initializeScrollNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
-    const heroButtons = document.querySelectorAll('[data-tab]');
+    const sections = document.querySelectorAll('.section');
 
     // Add click event listeners to navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const tabName = this.getAttribute('data-tab');
-            showTab(tabName);
-            updateActiveNavLink(this);
-        });
-    });
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
 
-    // Add click event listeners to hero buttons
-    heroButtons.forEach(button => {
-        if (button.classList.contains('nav-link')) return; // Skip nav links
-
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const tabName = this.getAttribute('data-tab');
-            if (tabName) {
-                showTab(tabName);
-                updateActiveNavLink(document.querySelector(`.nav-link[data-tab="${tabName}"]`));
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
     });
+
+    // Add scroll spy functionality
+    window.addEventListener('scroll', function() {
+        updateActiveNavLink();
+    });
 }
 
-// Show specific tab content
-function showTab(tabName) {
-    // Hide all tab contents
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(content => {
-        content.classList.remove('active');
+// Update active navigation link based on scroll position
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    let currentSection = '';
+    const scrollPos = window.scrollY + 150; // Offset for header height
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
     });
 
-    // Show the selected tab
-    const selectedTab = document.getElementById(tabName);
-    if (selectedTab) {
-        selectedTab.classList.add('active');
-    }
-
-    // Scroll to top when switching tabs
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Update active navigation link
-function updateActiveNavLink(activeLink) {
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Update active nav link
     navLinks.forEach(link => {
         link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+        }
     });
+}
 
-    if (activeLink) {
-        activeLink.classList.add('active');
-    }
+// Initialize scroll animations
+function initializeScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.project-card, .timeline-item, .skills-category, .about-stats .stat');
+    animateElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(element);
+    });
 }
 
 // Contact form functionality
@@ -155,58 +175,66 @@ function showFormMessage(message, type) {
     }
 }
 
-// Smooth scrolling functionality
+// Smooth scrolling functionality (for hero action buttons)
 function initializeSmoothScrolling() {
-    // Add smooth scrolling behavior to any anchor links
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    const heroButtons = document.querySelectorAll('.hero-actions a[href^="#"]');
 
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
+    heroButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
 
-            // Skip if it's a tab navigation (handled by tab system)
-            if (this.hasAttribute('data-tab')) {
-                return;
-            }
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
 
-            // Handle other anchor links
-            if (href && href !== '#') {
-                e.preventDefault();
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                // Update active nav link after scrolling
+                setTimeout(() => {
+                    updateActiveNavLink();
+                }, 100);
             }
         });
     });
 }
 
-// Utility function to add smooth animations on scroll (optional enhancement)
-function initializeScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+// Add parallax effect to hero section
+function initializeParallaxEffect() {
+    const heroSection = document.querySelector('.hero-section');
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.5;
 
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.project-card, .timeline-item, .skills-category');
-    animateElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(element);
+        if (heroSection) {
+            heroSection.style.transform = `translateY(${parallax}px)`;
+        }
+    });
+}
+
+// Add scroll progress indicator
+function initializeScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(to right, #667eea, #764ba2);
+        z-index: 9999;
+        transition: width 0.3s ease;
+    `;
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
     });
 }
 
@@ -222,35 +250,66 @@ function handleMobileNavigation() {
     }
 }
 
-// Initialize scroll animations when page loads
+// Initialize additional features when page loads
 window.addEventListener('load', function() {
-    // Uncomment the line below to enable scroll animations
-    // initializeScrollAnimations();
+    initializeScrollProgress();
+    // Uncomment the line below to enable parallax effect
+    // initializeParallaxEffect();
 });
 
 // Handle window resize events
 window.addEventListener('resize', function() {
     handleMobileNavigation();
+    updateActiveNavLink(); // Recalculate active section on resize
 });
 
 // Keyboard navigation support
 document.addEventListener('keydown', function(e) {
-    // Handle tab navigation with keyboard
-    if (e.key === 'Tab') {
-        // Let default behavior handle focus management
-        return;
+    // Handle arrow key navigation between sections
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (e.ctrlKey || e.metaKey) {
+            e.preventDefault();
+            const sections = document.querySelectorAll('.section');
+            const currentSection = getCurrentSection();
+            const currentIndex = Array.from(sections).findIndex(section =>
+                section.getAttribute('id') === currentSection
+            );
+
+            if (e.key === 'ArrowDown' && currentIndex < sections.length - 1) {
+                sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+                sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     }
 
-    // Handle Escape key to close any open modals (future enhancement)
+    // Handle Escape key to scroll to top
     if (e.key === 'Escape') {
-        // Could be used for closing modals or overlay content
-        return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 });
 
+// Get current section based on scroll position
+function getCurrentSection() {
+    const sections = document.querySelectorAll('.section');
+    const scrollPos = window.scrollY + 150;
+    let currentSection = 'home';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    return currentSection;
+}
+
 // Export functions for external use (if needed)
 window.portfolioUtils = {
-    showTab,
     updateActiveNavLink,
-    handleFormSubmission
+    handleFormSubmission,
+    getCurrentSection
 };
