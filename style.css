@@ -302,7 +302,7 @@ body {
     }
 
     .main {
-        margin-top: 120px;
+        margin-top: 20px;
     }
 
     .section {
@@ -425,7 +425,7 @@ body {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 15px;
+        padding: 0 1px;
     }
 
     .hero {
@@ -449,7 +449,7 @@ body {
     }
 
     .timeline-item {
-        padding-left: 45px;
+        padding-left: 10px;
     }
 
     .about-stats {
