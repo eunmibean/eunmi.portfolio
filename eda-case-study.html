@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <link rel="icon" type="image/png" href="IMG_1926.png">
+    <link rel="apple-touch-icon" href="IMG_1926.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .case-study-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgb(var(--primary));
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            gap: 0.75rem;
+        }
+
+        .case-study-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: rgb(20 23 26);
+        }
+
+        .overview-box {
+            background: rgba(var(--accent), 0.5);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid rgb(var(--primary));
+            margin: 2rem 0;
+        }
+
+        .overview-box p {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgb(45 48 52);
+        }
+
+        .content-section {
+            margin: 3rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgb(20 23 26);
+        }
+
+        .content-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: rgb(20 23 26);
+        }
+
+        .content-section ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .content-section li {
+            margin: 0.25rem 0;
+            line-height: 1.7;
+            color: rgb(45 48 52);
+        }
+
+        .content-section p {
+            line-height: 1.7;
+            margin: 1rem 0;
+            color: rgb(45 48 52);
+        }
+
+        .stats-box {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .stats-box h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: rgb(20 23 26);
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e2e8f0;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .case-study-container {
+                padding: 1rem;
+            }
+
+            .case-study-title {
+                font-size: 1.75rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-section h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page" role="document">
+        <div class="case-study-container">
+            <a href="index.html#experience" class="back-link">
+                ← Back to Portfolio
+            </a>
+
+            <div class="case-study-header">
+                <h1 class="case-study-title">Event-Driven Architecture with Transactional Outbox Pattern</h1>
+            </div>
+
+            <div class="overview-box">
+                <p>
+                    This page describes how I introduced an Event-Driven Architecture using Spring Application Events and a Transactional Outbox pattern to decouple user-facing point transactions from an external settlement system, ensuring that settlement failures do not impact user experience.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Background</h2>
+                <ul>
+                    <li>Point settlement was previously handled entirely within the internal system.</li>
+                    <li>To increase point usage and support more redemption channels, integration with a licensed external settlement provider became necessary.</li>
+                    <li>It was critical to decouple user-facing point transactions from the settlement process to prevent external failures from affecting user experience.</li>
+                    <li>A Transactional Outbox pattern was adopted to enable reliable asynchronous processing.</li>
+                </ul>
+
+                <div class="stats-box">
+                    <h4>Daily Transaction Volume</h4>
+                    <ul>
+                        <li>KT: approximately 60–70K events/day</li>
+                        <li>SKT: approximately 20–30K events/day</li>
+                        <li>LG: approximately 20–30K events/day</li>
+                    </ul>
+                    <p>
+                        Although a message broker such as Kafka was considered, the operational complexity and cost in a restricted, no-internet environment outweighed the benefits at this scale.
+                        A DB-backed outbox pattern with batch processing was therefore chosen as the most practical solution.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Architecture Summary</h2>
+                <ul>
+                    <li>Decoupled user point transactions from the external settlement system using an event-driven approach.</li>
+                    <li>Published domain events using Spring <code>publishEvent</code>.</li>
+                    <li>Consumed events via <code>eventListener</code> and persisted them in a transactional outbox table.</li>
+                    <li>Processed outbox events asynchronously through batch jobs to invoke the external settlement API.</li>
+                    <li>Implemented retry and failure-handling strategies to isolate external system issues from user-facing flows.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Key Points</h2>
+                    <ul>
+                        <li>Spring <code>publishEvent</code> / <code>eventListener</code></li>
+                        <li>Transactional Outbox Pattern</li>
+                        <li>Asynchronous batch polling</li>
+                        <li>Decoupling of user-facing transactions and external integration logic</li>
+                        <li>Retry and failure-handling strategy for external API calls</li>
+                        <li>Sequential ordering guarantees for settlement requests</li>
+                    </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Troubleshooting</h2>
+                <h3>1. Ordering Guarantee Issue for Settlement Requests</h3>
+                
+                    <h4>Problem</h4>
+                    <ul>
+                        <li>Outbox events were initially processed in order of creation time.</li>
+                        <li>The timestamp column stored values only up to second-level precision (<code>YYYY-MM-DD HH:mm:ss</code>).</li>
+                        <li>When multiple events were created within the same second, their processing order could not be guaranteed.</li>
+                    </ul>
+        
+                    <h4>Solution</h4>
+                    <ul>
+                        <li>Introduced an auto-increment <code>seq</code> column.</li>
+                        <li>Sorted events by this sequence value to ensure deterministic processing order.</li>
+                    </ul>
+
+                <h3>2. Point Expiration Timing Mismatch</h3>
+
+                    <h4>Problem</h4>
+                    <ul>
+                        <li>External settlement provider expired points between 00:03 and 00:10.</li>
+                        <li>The internal service executed point expiration at 00:02.</li>
+                        <li>This timing mismatch caused temporary balance inconsistencies.</li>
+                    </ul>
+                    <h4>Solution</h4>
+                    <ul>
+                        <li>Redesigned the retry strategy.</li>
+                        <li>Gradually increased retry intervals based on <code>RETRY_COUNT</code>, from 5 seconds up to 10 minutes.</li>
+                        <li>Improved handling logic to absorb temporary inconsistencies caused by timing differences.</li>
+                    </ul>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
+                <a href="index.html#experience" class="back-link">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

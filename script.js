@@ -6,9 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeContactForm();
     initializeSmoothScrolling();
     initializeScrollAnimations();
+    initializeLanguageSwitcher();
 
     // Set initial active nav link
     updateActiveNavLink();
+
+    // Initialize and apply saved language
+    initLanguage();
+    updatePageLanguage();
 });
 
 // Scroll-based navigation functionality
@@ -307,9 +312,72 @@ function getCurrentSection() {
     return currentSection;
 }
 
+// Language Switcher functionality
+function initializeLanguageSwitcher() {
+    const languageSwitcher = document.getElementById('languageSwitcher');
+
+    if (languageSwitcher) {
+        languageSwitcher.addEventListener('click', function() {
+            // Toggle language
+            const newLang = getCurrentLanguage() === 'en' ? 'ko' : 'en';
+            setLanguage(newLang);
+            updatePageLanguage();
+            updateLanguageSwitcherUI();
+        });
+    }
+
+    // Set initial UI state
+    updateLanguageSwitcherUI();
+}
+
+// Update all translatable elements on the page
+function updatePageLanguage() {
+    const lang = getCurrentLanguage();
+
+    // Update elements with data-i18n attribute (text content)
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const translation = getTranslation(key);
+        if (translation) {
+            element.textContent = translation;
+        }
+    });
+
+    // Update elements with data-i18n-html attribute (HTML content)
+    document.querySelectorAll('[data-i18n-html]').forEach(element => {
+        const key = element.getAttribute('data-i18n-html');
+        const translation = getTranslation(key);
+        if (translation) {
+            element.innerHTML = translation;
+        }
+    });
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+}
+
+// Update language switcher button UI
+function updateLanguageSwitcherUI() {
+    const lang = getCurrentLanguage();
+    const langOptions = document.querySelectorAll('.lang-option');
+
+    langOptions.forEach(option => {
+        const optionLang = option.getAttribute('data-lang');
+        if (optionLang === lang) {
+            option.style.fontWeight = '700';
+            option.style.color = 'rgb(var(--primary))';
+        } else {
+            option.style.fontWeight = '500';
+            option.style.color = 'rgb(var(--muted))';
+        }
+    });
+}
+
 // Export functions for external use (if needed)
 window.portfolioUtils = {
     updateActiveNavLink,
     handleFormSubmission,
-    getCurrentSection
+    getCurrentSection,
+    updatePageLanguage,
+    initializeLanguageSwitcher
 };
