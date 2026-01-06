@@ -10,7 +10,7 @@ const translations = {
         // Summary Section
         summary: {
             subtitle: "3+ years experience & Open to Work",
-            content: `I'm someone who takes action the moment I get inspired. <br><br>
+            content: `I am someone who transforms inspiration into immediate action. <br><br>
 
 Through government-funded bootcamps and mentoring programs, I built strong learning skills and by joining international meetups and running study groups, I developed collaboration and leadership.
 I'm deeply drawn to development because the things I build can be shared with others and evolve into meaningful, valuable services.
@@ -24,15 +24,15 @@ My journey in software development continues with the same passion and adventuro
         // Key Skills
         keySkills: {
             title: "Key Skills",
-            skill1: {
-                title: "Technical Documentation",
-                meta: "Ability to create clear documents that effectively deliver knowledge and information to others and to myself.",
-                bullets: [
-                    "Created API documentation, wiki pages, and history logs using screenshots and examples.",
-                    "Wrote troubleshooting notes to quickly resolve recurring issues.",
-                    "Visualized algorithms and system workflows to make complex concepts easy to understand."
-                ]
-            },
+            // skill1: {
+            //     title: "Technical Documentation",
+            //     meta: "Ability to create clear documents that effectively deliver knowledge and information to others and to myself.",
+            //     bullets: [
+            //         "Created API documentation, wiki pages, and history logs using screenshots and examples.",
+            //         "Wrote troubleshooting notes to quickly resolve recurring issues.",
+            //         "Visualized algorithms and system workflows to make complex concepts easy to understand."
+            //     ]
+            // },
             skill2: {
                 title: "Communication Skills",
                 meta: "Ability to communicate comfortably across different ages, languages, and roles, and respond to requirements through smooth interaction.",
@@ -187,15 +187,15 @@ My journey in software development continues with the same passion and adventuro
         // Key Skills
         keySkills: {
             title: "핵심 역량",
-            skill1: {
-                title: "기술 문서화",
-                meta: "지식과 정보를 타인과 나 자신에게 효과적으로 전달하는 명확한 문서를 작성하는 능력.",
-                bullets: [
-                    "스크린샷과 예제를 활용하여 API 문서, 위키 페이지, 히스토리 로그를 작성했습니다.",
-                    "반복되는 문제를 빠르게 해결하기 위한 트러블슈팅 노트를 작성했습니다.",
-                    "알고리즘과 시스템 워크플로우를 시각화하여 복잡한 개념을 쉽게 이해할 수 있도록 했습니다."
-                ]
-            },
+            // skill1: {
+            //     title: "기술 문서화",
+            //     meta: "지식과 정보를 타인과 나 자신에게 효과적으로 전달하는 명확한 문서를 작성하는 능력.",
+            //     bullets: [
+            //         "스크린샷과 예제를 활용하여 API 문서, 위키 페이지, 히스토리 로그를 작성했습니다.",
+            //         "반복되는 문제를 빠르게 해결하기 위한 트러블슈팅 노트를 작성했습니다.",
+            //         "알고리즘과 시스템 워크플로우를 시각화하여 복잡한 개념을 쉽게 이해할 수 있도록 했습니다."
+            //     ]
+            // },
             skill2: {
                 title: "커뮤니케이션 스킬",
                 meta: "다양한 연령, 언어, 역할에 걸쳐 편안하게 소통하고 원활한 상호작용을 통해 요구사항에 대응하는 능력.",

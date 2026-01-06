@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <link rel="icon" type="image/png" href="IMG_1926.png">
+    <link rel="apple-touch-icon" href="IMG_1926.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-sub.css">
+</head>
+<body>
+    <div class="page" role="document">
+        <div class="case-study-container">
+            <a href="index.html#experience" class="back-link">
+                ← Back to Portfolio
+            </a>
+
+            <div class="case-study-header">
+                <h1 class="case-study-title">ISMS Security Hardening & Vulnerability Remediation</h1>
+            </div>
+
+            <div class="overview-box">
+                <p>
+                    This page describes a major framework upgrade where I migrated a production system from Spring Boot 2.x to 3.x to address security risks and improve maintainability.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Context</h2>
+                <ul>
+                    <li> Legacy system running on Spring Boot 2.x and Java 8</li>
+                    <li> Required to address security vulnerabilities and long-term maintainability</li>
+                    <li> Major breaking changes introduced in Spring Boot 3.x</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Key Migration Challenges & Decisions</h2>
+                <h3>1. Jakarta EE Migration</h3>
+                <ul>
+                    <li> Updated all `javax.*` references to `jakarta.*`</li>
+                    <li> Verified framework and library compatibility across the codebase</li>
+                </ul>
+
+                <h3>Java 17 Upgrade</h3>
+                <ul>
+                    <li> Migrated runtime from Java 8 to 17</li>
+                    <li> Adopted modern language features (e.g., text blocks) where readability improved</li>
+                </ul>
+
+                <h3>ORM & Persistence Changes</h3>
+                <ul>
+                    <li> Addressed Hibernate 6 behavior changes and removed deprecated configuration</li>
+                    <li> Ensured ID generation and persistence behavior remained consistent</li>
+                </ul>
+
+                <h3>Infrastructure & Runtime Behavior</h3>
+                <ul>
+                    <li> Explicitly configured shutdown behavior due to changes in Spring Boot 3 defaults</li>
+                    <li> Reviewed HTTP client usage and clarified HTTP/2 configuration assumptions</li>
+                </ul>
+
+                <h3>Test & Tooling Adjustments</h3>
+                <ul>
+                    <li> Adapted test configuration due to deprecation of @MockBean and @SpyBean</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
+                <a href="index.html#experience" class="back-link">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

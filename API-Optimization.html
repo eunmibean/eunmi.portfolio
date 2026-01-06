@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <link rel="icon" type="image/png" href="IMG_1926.png">
+    <link rel="apple-touch-icon" href="IMG_1926.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-sub.css">
+
+</head>
+<body>
+    <div class="page" role="document">
+        <div class="case-study-container">
+            <a href="index.html#experience" class="back-link">
+                ← Back to Portfolio
+            </a>
+
+            <div class="case-study-header">
+                <h1 class="case-study-title">Account Termination API Optimization</h1>
+            </div>
+
+            <div class="overview-box">
+                <p>
+                    This page describes how I reduced database CPU spikes and improved API responsiveness by refactoring a heavy account termination API, minimizing transactional scope, and offloading non-critical operations to batch processing.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Background</h2>
+                <ul>
+                    <li> Multiple telecom partners (KT, SKT, LG) shared a single database server
+                    <li> During peak periods, overlapping account termination requests caused:
+                        <ul>
+                            <li> sudden traffic surges</li>
+                            <li> database CPU usage to spike up to ~90%</li>
+                        </ul>
+                    <li> Issue occurred around 02:02–02:15 AM</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Problem</h2>
+                <ul>
+                    <li> The account termination API executed multiple heavy database operations synchronously:</li>
+                    <ul>
+                        <li> retrieve, delete, and backup</li>
+                    </ul>
+                    <li>All logic was wrapped in a single @Transactional boundary</li>
+                    <li>Concurrent requests from multiple partners caused:</li>
+                    <ul>
+                        <li>long transaction durations</li>
+                        <li>high DB CPU utilization</li>
+                        <li>increased risk of service instability</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Analysis</h2>
+                <ul>
+                    <li> Identified that only a small subset of logic required immediate consistency:</li>
+                    <ul>
+                        <li> preventing further user activity after termination</li>
+                    </ul>
+                    <li> Backup, archival, and data migration tasks:</li>
+                    <ul>
+                        <li> were not user-critical</li>
+                        <li> did not need to run synchronously</li>
+                    </ul>
+                    <li> Concluded that transaction scope was overly broad and could be safely reduced</li>
+                </ul>
+            </div>
+
+             <div class="content-section">
+                <h2>Solution</h2>
+                <h3>1. API Lightweight Refactoring</h3>
+                <ul>
+                    <li> Kept only essential logic in the synchronous API:</li>
+                    <ul>
+                        <li> updated user status (status = -1) to immediately block usage</li>
+                        <li> performed necessary validations</li>
+                    </ul>
+                    <li> Removed heavy operations from the transaction:</li>
+                    <ul>
+                        <li> data migration</li>
+                        <li> backup-related processing</li>
+                    </ul>
+                </ul>
+
+                <h3>2. Batch-based Post Processing</h3>
+                <ul>
+                    <li> Introduced a dedicated batch job to handle termination-related cleanup:</li>
+                    <ul>
+                        <li> executed during off-peak hours (04:00–05:00 AM)</li>
+                        <li> performed necessary validations</li>
+                    </ul>
+                    <li> Batch processing strategy:</li>
+                    <ul>
+                        <li> processed only users with status = -1</li>
+                        <li> added safeguards to avoid infinite retries on problematic records</li>
+                        <li> ensured detailed logging for traceability and recovery</li>
+                    </ul>
+                </ul>
+            </div>
+
+             <div class="content-section">
+                <h2>Result</h2>
+                <h3>Performance Improvement (Pinpoint)</h3>
+                <ul>
+                    <li> Before: API response time ~1250ms </li>
+                    <li> After: API response time ~150ms</li>
+                    <li> Transaction duration significantly reduced</li>
+                </ul>
+
+                <h3>System Impact</h3>
+                <ul>
+                    <li> Reduced DB CPU spikes during peak termination periods</li>
+                    <li> Improved overall API stability under concurrent traffic</li>
+                    <li> Lowered risk of lock contention on shared database resources</li>
+                    <li> Established a scalable pattern for handling non-critical heavy operations</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
+                <a href="index.html#experience" class="back-link">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

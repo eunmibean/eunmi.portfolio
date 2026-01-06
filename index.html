@@ -106,56 +106,48 @@
         <!-- Key Skills Section -->
         <section id="key-skills" aria-labelledby="exp-heading">
             <div class="section-head">
-                <h2 id="exp-heading">Key Skills</h2>
+                <h2 id="exp-heading" data-i18n="keySkills.title">Key Skills</h2>
             </div>
 
-            <article class="item" aria-labelledby="exp-1">
-            <h3 id="exp-1">Technical Documentation</h3>
-            <div class="meta"><span>Ability to create clear documents that effectively deliver knowledge and information to others and to myself.</span></div>
-            <ul class="bullets">
-                <li>Created API documentation, wiki pages, and history logs using screenshots and examples.</li>
-                <li>Wrote troubleshooting notes to quickly resolve recurring issues.</li>
-                <li>Visualized algorithms and system workflows to make complex concepts easy to understand.</li>
-            </ul>
-            </article>
-
             <article class="item" aria-labelledby="exp-2">
-            <h3 id="exp-2">Communication Skills</h3>
-            <div class="meta"><span>Ability to communicate comfortably across different ages, languages, and roles, and respond to requirements through smooth interaction.</span></div>
+            <h3 id="exp-2">System Design & Architecture</h3>
+            <div class="meta"><span>Ability to design resilient backend systems under real-world constraints, separating user experience from asynchronous and failure-prone processes.</span></div>
             <ul class="bullets">
-                <li>Organized an internal movie club, creating a communication channel across various positions and enabling open, comfortable discussion.</li>
-                <li>Communicated directly with frontend developers and PMs to precisely understand requirements.</li>
-                <li>Reduced unnecessary translation time by communicating directly in English with overseas teams and global clients.</li>
+                <li>Designed an event-driven architecture using Spring Application Events to decouple user point transactions from external settlement systems.</li>
+                <li>Applied a DB-based Transactional Outbox pattern with batch processing in a network-restricted environment where message brokers were not feasible.</li>
+                <li>Separated synchronous user-facing logic from asynchronous settlement, retry, and reconciliation processes to improve system resilience.</li>
+                <li>Redesigned expiration and settlement flows to guarantee ordering, idempotency, and consistency.</li>
             </ul>
             </article>
 
             <article class="item" aria-labelledby="exp-3">
-            <h3 id="exp-3">Data Handling & Performance Optimization</h3>
-            <div class="meta"><span>Ability to analyze data and improve systems for more flexible and efficient services.</span></div>
+            <h3 id="exp-3">Reliability & Operational Excellence</h3>
+            <div class="meta"><span>Experience improving system stability, performance, and operational reliability through architectural changes and performance tuning.</span></div>
             <ul class="bullets">
-                <li>Improved query speed and search efficiency by migrating from MySQL to Elasticsearch.</li>
-                <li>Tuned an API query that took over 10 seconds, significantly reducing response time.</li>
-                <li>Designed strategies using Redis to limit failed password attempts and reduce database load.</li>
+                <li>Reduced API response time from ~1250ms to ~150ms by splitting heavy transactional logic into asynchronous batch processes.</li>
+                <li>Identified and resolved database CPU spikes (up to 90%) caused by concurrent traffic by redesigning API responsibilities.</li>
+                <li>Collaborated with DBAs to analyze slow queries, optimize execution plans, and improve performance from full table scans (~16s) to indexed lookups (~0.001s).</li>
+                <li>Improved data consistency and operational accuracy by redesigning daily batch processes and retry strategies.</li>
             </ul>
             </article>
 
             <article class="item" aria-labelledby="exp-3">
-                <h3 id="exp-3">Server Setup & Operations</h3>
-                <div class="meta"><span>Ability to build and operate servers in on-premise and SaaS environments using Docker.</span></div>
+                <h3 id="exp-3">Communication & Collaboration</h3>
+                <!-- <div class="meta"><span>Ability to build and operate servers in on-premise and SaaS environments using Docker.</span></div> -->
                 <ul class="bullets">
-                    <li>Built and managed an API test server using nginx and Docker.</li>
-                    <li>Stored API server images in a Docker repository for version control and deployment.</li>
-                    <li>Deployed personal projects to Google Cloud to gather user experience and feedback.</li>
+                    <li>Communicated closely with frontend engineers and PMs to translate ambiguous business requirements into clear backend contracts.</li>
+                    <li>Coordinated with DBAs and operations teams to diagnose performance bottlenecks and apply production-safe improvements.</li>
+                    <li>Worked directly with overseas teams in English, reducing delays caused by indirect communication.</li>
                 </ul>
             </article>
 
             <article class="item" aria-labelledby="exp-3">
-                <h3 id="exp-3">Development Environment Improvement</h3>
-                <div class="meta"><span>Ability to enhance workflows and maintainability for more efficient development.</span></div>
+                <h3 id="exp-3">Data Handling & Performance Optimization</h3>
+                <!-- <div class="meta"><span>Ability to enhance workflows and maintainability for more efficient development.</span></div> -->
                 <ul class="bullets">
-                    <li>Applied insights from a Clean Code study group to refactor real-world codebases.</li>
-                    <li>Introduced test code to existing APIs and promoted mandatory test coverage using Rest Docs.</li>
-                    <li>mplemented Git Flow branch strategy to reduce confusion and keep version history organized.</li>
+                    <li>Optimized slow database queries in collaboration with DBAs, improving execution plans from full table scans to indexed range scans.</li>
+                    <li>Reduced critical API latency from seconds to milliseconds through query tuning and architectural refactoring.</li>
+                    <li>Applied caching strategies (Ehcache/Redis) to reduce database connections for rarely changing configuration and event data.</li>
                 </ul>
             </article>
         </section>
@@ -177,11 +169,15 @@
 
                             <span>Service: Point Reward Service</span><br>
                             <ul class="bullets">
-                                <li> Enhanced the settlement system to improve accuracy and scalability</li>
+                                <li> Identified read-heavy, low-consistency-requirement data and implemented Ehcache-based local caching, intentionally limiting cache scope to minimize data consistency risks.</li>
                                 <li> <a href="eda-case-study.html" class="custom-link"> Applied an event-driven architecture with a transactional outbox pattern to decouple user point transactions from external settlement processing.</a></li>
-                                <li> Integrated with prepaid electronic payment service providers</li>
-                                <li> Improved expired point handling logic to ensure correct point lifecycle management</li>
-                                <li> Increased point utilization by integrating promotional campaigns into the reward system</li>
+                                <li> <a href="ISMS-security.html" class="custom-link"> Strengthened backend security for ISMS compliance by implementing role-based access control, 2FA-based authentication flow, sensitive data encryption/masking, and audit log enhancements.</a></li>
+                                <li> <a href="springboot-upgrade.html" class="custom-link"> Upgraded a legacy backend from Spring Boot 2.x to 3.5 and Java 8 to 17, addressing Jakarta EE migration, ORM compatibility changes, and shutdown/test behavior changes in production.</a></li>
+                                <li> <a href="API-Optimization.html" class="custom-link"> Refactored a heavy account termination API by minimizing transactional scope and offloading non-critical operations to batch processing, reducing response time from ~1.25s to ~150ms and alleviating DB CPU spikes.</a></li>
+                                <li> Reduced critical query latency from ~16s (full table scan) to ~1ms by redesigning indexes and aligning SQL with real production access patterns, validated through execution plan analysis.</li>
+                                <li> Redesigned the point expiration system, resolving long-standing inconsistencies and recovering approximately ₩1B worth of expired points, improving settlement accuracy.</li>
+                                <li> <a href="problem-driven-engineering.html" class="custom-link"> Identified and resolved multiple production issues by redesigning point settlement, expiration, and reconciliation flows.</a></li>
+                                
                             </ul>
                             <span>Tech Stack: Java 8, Java 17, Spring Boot, MariaDB</span><br><br>
 
@@ -235,7 +231,7 @@
             </div>
 
             <article class="item" aria-labelledby="exp-1">
-            <h3 id="exp-1">Gongsamo Official Website</h3>
+            <h3 id="exp-1"><a href='https://github.com/Gongsamo-Korea/data-crawler' class="custom-link">Gongsamo Official Website</a></h3>
             <div class="meta">A platform that connects young professionals in international development and provides curated newsletters.</div>
             <div class="meta"><span>05.2023 — 12.2023</span><span>Remote</span></div>
             <ul class="bullets">

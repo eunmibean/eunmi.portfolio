@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <link rel="icon" type="image/png" href="IMG_1926.png">
+    <link rel="apple-touch-icon" href="IMG_1926.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-sub.css">
+</head>
+<body>
+    <div class="page" role="document">
+        <div class="case-study-container">
+            <a href="index.html#experience" class="back-link">
+                ← Back to Portfolio
+            </a>
+
+            <div class="case-study-header">
+                <h1 class="case-study-title">ISMS Security Hardening & Vulnerability Remediation</h1>
+            </div>
+
+            <div class="overview-box">
+                <p>
+                    This page documents the work I led while preparing for and responding to the KISA(Korea Internet & Security Agency) ISMS security audit.
+                    I proactively reviewed existing authentication, access control, and personal data handling mechanisms, identified security gaps raised during the audit, and implemented improvements to meet ISMS requirements without compromising operational usability.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Key Improvements</h2>
+                <h3>1. Authentication & Authorization</h3>
+                <ul>
+                    <li> Enforced role-based access control for sensitive operations (e.g., settlement file downloads) </li>
+                    <li> Introduced token expiration policies and tightened session handling </li>
+                    <li> Modified authentication flow to issue access tokens only after successful OTP verification</li>
+                </ul>
+
+                <h3>2. Personal Data Protection</h3>
+                <ul>
+                    <li> Encrypted or masked sensitive administrator information (name, phone number, OTP codes)</li>
+                    <li> Separated personal data into dedicated columns for controlled access</li>
+                    <li> Improved data retention and deletion policies for terminated accounts</li>
+                </ul>
+
+                <h3>3. Auditability & Traceability</h3>
+                <ul>
+                    <li> Enhanced admin action logs for password changes and sensitive operations</li>
+                    <li> Improved history tracking for admin creation, update, and deletion events</li>
+                    <li> Ensured security-relevant actions are traceable for audit purposes</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Outcome</h2>
+                <ul>
+                    <li> Successfully passed ISMS security audit</li>
+                    <li> Reduced exposure of sensitive data</li>
+                    <li> Improved security posture and operational confidence</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
+                <a href="index.html#experience" class="back-link">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

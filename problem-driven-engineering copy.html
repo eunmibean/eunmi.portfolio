@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <link rel="icon" type="image/png" href="IMG_1926.png">
+    <link rel="apple-touch-icon" href="IMG_1926.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-sub.css">
+</head>
+<body>
+    <div class="page" role="document">
+        <div class="case-study-container">
+            <a href="index.html#experience" class="back-link">
+                ← Back to Portfolio
+            </a>
+
+            <div class="case-study-header">
+                <h1 class="case-study-title">Problem-Driven Engineering</h1>
+            </div>
+
+            <div class="overview-box">
+                <p>
+                    This page highlights real production issues I personally identified, analyzed, and resolved while operating large-scale financial and point systems.
+                    Rather than reacting only to reported incidents, I proactively investigated system behavior, performance metrics, and data inconsistencies to uncover hidden problems.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Problems</h2>
+                <ul>
+                    <li> Withdrawal fee calculations were applied at a different timing than balance validation, causing user confusion and inconsistent results.</li>
+                    <li> Expired point statistics were calculated based on data insertion dates, which did not reflect the actual expiration execution dates.</li>
+                    <li> Monthly expiration reports lacked visibility into daily point expiration trends.</li>
+                    <li> User point earnings and usage were not traceable, making it impossible to accurately identify where points were earned, how they were spent, or reconcile balances by date.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Solutions</h2>
+                <ul>
+                    <li> Refined withdrawal validation logic to align fee calculation timing with available balance checks.
+                    <li> Introduced daily point expiration batches and reporting to replace coarse monthly statistics.</li>
+                    <li> Redefined expiration query criteria to reflect the actual expiration execution window.</li>
+                    <li> Implemented explicit earned–spent–expired mappings to enable accurate settlement tracking and historical reconciliation.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Impact</h2>
+                    <ul>
+                        <li> Improved accuracy and predictability of withdrawal validation and settlement reports.</li>
+                        <li> Reduced reconciliation discrepancies when integrating with external settlement systems.</li>
+                        <li> Increased internal trust in financial data consistency and auditability.</li>
+                    </ul>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
+                <a href="index.html#experience" class="back-link">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
