@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <link rel="icon" type="image/png" href="IMG_1926.png">
+    <link rel="apple-touch-icon" href="IMG_1926.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-sub.css">
+
+</head>
+<body>
+    <div class="page" role="document">
+        <div class="case-study-container">
+            <a href="index.html#experience" class="back-link">
+                ← Back to Portfolio
+            </a>
+
+            <div class="case-study-header">
+                <h1 class="case-study-title">Performance Optimization Case</h1>
+            </div>
+
+            <div class="overview-box">
+                <p>
+                    This page describes how I identified and resolved a critical database performance issue.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Problem</h2>
+                <ul>
+                    <li> A frequently executed query on a large table was causing severe latency</li>
+                    <li> Execution plan showed Full Table Scan</li>
+                    <li> Query latency reached ~16 seconds under production data volume</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Analysis</h2>
+                <ul>
+                    <li> Reviewed slow query logs with a DBA</li>
+                    <li> Compared execution plans before and after optimization</li>
+                    <li> Identified mismatch between existing indexes and actual service-layer query conditions</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Solution</h2>
+                <h3>Index Optimization</h3>
+                <ul>
+                    <li> Redesigned indexes to match:</li>
+                    <ul>
+                        <li> actual filtering conditions</li>
+                        <li> time-range based access patterns </li>
+                    </ul>
+                    <li> Replaced inefficient scans with index-based access</li>
+                </ul>
+
+                <h3>Query Refinement</h3>
+                <ul>
+                    <li> Adjusted query predicates to improve index selectivity</li>
+                    <li> Simplified query structure to reduce unnecessary scanning</li>
+                </ul>
+            </div>
+
+             <div class="content-section">
+                <h2>Result</h2> 
+                <ul>
+                    <li> Query execution time improved from ~16 seconds → ~0.001 seconds </li>
+                    <li> Execution plan changed from: </li>
+                    <ul>
+                        <li> Full Table Scan → Index / Range Scan </li>
+                        <li> Significantly reduced database load and improved API response time</li>
+                    </ul>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
+                <a href="index.html#experience" class="back-link">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
