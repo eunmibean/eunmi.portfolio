@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eunmi Kong | An initiative-driven software engineer </title>
+    <title data-i18n="header.title">헤더 타이틀</title>
     <link rel="icon" type="image/png" href="IMG_1926.png">
     <link rel="apple-touch-icon" href="IMG_1926.png">
     <link rel="stylesheet" href="style.css">
@@ -53,7 +53,7 @@
                   <h1 id="name-heading" class="name" data-i18n="header.name">이름</h1>
 
                   <!-- EDIT: Short title / tagline -->
-                  <p class="subtitle" data-i18n="header.subtitle">Software Engineer — JAVA &amp; Driven by curiosity, shaped by collaboration, and always building what matters.</p>
+                  <p class="subtitle" data-i18n="header.subtitle">소제목</p>
 
                   <!-- Contact links: edit href/text as needed -->
                   <nav class="contact" aria-label="Contact">
@@ -84,20 +84,11 @@
             <section id="summary" aria-labelledby="summary-heading">
                 <div class="section-head">
                     <h2 id="summary-heading">Summary</h2>
-                    <div class="muted" data-i18n="summary.subtitle">3+ years experience &amp; Open to Work</div>
+                    <div class="muted" data-i18n="summary.subtitle">경력 횟수</div>
                 </div>
                 <article>
                     <p style="margin:0; font-size:var(--scale-1)" data-i18n-html="summary.content">
-                        I'm someone who takes action the moment I get inspired. <br><br>
-
-                        Through government-funded bootcamps and mentoring programs, I built strong learning skills and by joining international meetups and running study groups, I developed collaboration and leadership.
-                        I'm deeply drawn to development because the things I build can be shared with others and evolve into meaningful, valuable services.
-                        Through various projects, I've consistently taken initiative, challenged myself, and continued to grow. <br><br>
-
-                        As an API/WAS engineer for two years, I handled analysis, tuning, design, and deployment. As a developer for another two years, I built, deployed, and operated API services for an RPA automation solution
-                        while helping my team establish an efficient deployment culture. I also care about writing clean code and high-quality documentation to communicate effectively with others. <br><br>
-
-                        My journey in software development continues with the same passion and adventurous spirit as exploring a new place—always challenging myself and moving forward.
+                        요약내용
                     </p>
                 </article>
             </section>
@@ -109,45 +100,43 @@
                 <h2 id="exp-heading" data-i18n="keySkills.title">Key Skills</h2>
             </div>
 
+            <article class="item" aria-labelledby="exp-1">
+                <h3 id="exp-1" data-i18n="keySkills.skill1.title">스킬1 타이틀</h3>
+                <div class="meta" data-i18n="keySkills.skill1.meta">스킬1 소제목</div>
+                <ul class="bullets" >
+                    <li data-i18n="keySkills.skill1.bullets.0"></li>
+                    <li data-i18n="keySkills.skill1.bullets.1"></li>
+                    <li data-i18n="keySkills.skill1.bullets.2"></li>
+                    <li data-i18n="keySkills.skill1.bullets.3"></li>
+                </ul>
+            </article>
+
             <article class="item" aria-labelledby="exp-2">
-            <h3 id="exp-2">System Design & Architecture</h3>
-            <div class="meta"><span>Ability to design resilient backend systems under real-world constraints, separating user experience from asynchronous and failure-prone processes.</span></div>
-            <ul class="bullets">
-                <li>Designed an event-driven architecture using Spring Application Events to decouple user point transactions from external settlement systems.</li>
-                <li>Applied a DB-based Transactional Outbox pattern with batch processing in a network-restricted environment where message brokers were not feasible.</li>
-                <li>Separated synchronous user-facing logic from asynchronous settlement, retry, and reconciliation processes to improve system resilience.</li>
-                <li>Redesigned expiration and settlement flows to guarantee ordering, idempotency, and consistency.</li>
-            </ul>
-            </article>
-
-            <article class="item" aria-labelledby="exp-3">
-            <h3 id="exp-3">Reliability & Operational Excellence</h3>
-            <div class="meta"><span>Experience improving system stability, performance, and operational reliability through architectural changes and performance tuning.</span></div>
-            <ul class="bullets">
-                <li>Reduced API response time from ~1250ms to ~150ms by splitting heavy transactional logic into asynchronous batch processes.</li>
-                <li>Identified and resolved database CPU spikes (up to 90%) caused by concurrent traffic by redesigning API responsibilities.</li>
-                <li>Collaborated with DBAs to analyze slow queries, optimize execution plans, and improve performance from full table scans (~16s) to indexed lookups (~0.001s).</li>
-                <li>Improved data consistency and operational accuracy by redesigning daily batch processes and retry strategies.</li>
-            </ul>
-            </article>
-
-            <article class="item" aria-labelledby="exp-3">
-                <h3 id="exp-3">Communication & Collaboration</h3>
-                <!-- <div class="meta"><span>Ability to build and operate servers in on-premise and SaaS environments using Docker.</span></div> -->
-                <ul class="bullets">
-                    <li>Communicated closely with frontend engineers and PMs to translate ambiguous business requirements into clear backend contracts.</li>
-                    <li>Coordinated with DBAs and operations teams to diagnose performance bottlenecks and apply production-safe improvements.</li>
-                    <li>Worked directly with overseas teams in English, reducing delays caused by indirect communication.</li>
+                <h3 id="exp-2" data-i18n="keySkills.skill2.title">스킬2 타이틀</h3>
+                <div class="meta" data-i18n="keySkills.skill2.meta">스킬2 소제목</div>
+                <ul class="bullets" >
+                    <li data-i18n="keySkills.skill2.bullets.0"></li>
+                    <li data-i18n="keySkills.skill2.bullets.1"></li>
+                    <li data-i18n="keySkills.skill2.bullets.2"></li>
+                    <li data-i18n="keySkills.skill2.bullets.3"></li>
                 </ul>
             </article>
 
             <article class="item" aria-labelledby="exp-3">
-                <h3 id="exp-3">Data Handling & Performance Optimization</h3>
-                <!-- <div class="meta"><span>Ability to enhance workflows and maintainability for more efficient development.</span></div> -->
-                <ul class="bullets">
-                    <li>Optimized slow database queries in collaboration with DBAs, improving execution plans from full table scans to indexed range scans.</li>
-                    <li>Reduced critical API latency from seconds to milliseconds through query tuning and architectural refactoring.</li>
-                    <li>Applied caching strategies (Ehcache/Redis) to reduce database connections for rarely changing configuration and event data.</li>
+                <h3 id="exp-3" data-i18n="keySkills.skill3.title">스킬3 타이틀</h3>
+                <ul class="bullets" >
+                    <li data-i18n="keySkills.skill3.bullets.0"></li>
+                    <li data-i18n="keySkills.skill3.bullets.1"></li>
+                    <li data-i18n="keySkills.skill3.bullets.2"></li>
+                </ul>
+            </article>
+
+            <article class="item" aria-labelledby="exp-4">
+                <h3 id="exp-4" data-i18n="keySkills.skill4.title">스킬3 타이틀</h3>
+                <ul class="bullets" >
+                    <li data-i18n="keySkills.skill4.bullets.0"></li>
+                    <li data-i18n="keySkills.skill4.bullets.1"></li>
+                    <li data-i18n="keySkills.skill4.bullets.2"></li>
                 </ul>
             </article>
         </section>
@@ -155,53 +144,55 @@
         <!-- Experience Section -->
         <section id="experience">
             <div class="section-head">
-                <h2 id="exp-heading">Experience</h2>
+                <h2 id="exp-heading" data-i18n="experience.title">Experience</h2>
             </div>        
             <div class="container">
                 <div class="timeline" style="margin-top: 2.5rem;">
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <h3>Backend Developer</h3>
-                            <h4><a href="https://www.hectoinnovation.co.kr/corp" class="custom-link">HECTO INNOVATION</a>, Seoul, S.Korea</h4>
-                            <span class="timeline-date">09.2023 - Present (2 year and 3 month)</span><br>
-                            <span>Worked on multiple services, focusing on backend development and business logic implementation.</span><br><br>
+                            <h3 data-i18n="experience.exp1.title">포지션</h3>
+                            <a href="https://www.hectoinnovation.co.kr/corp" class="custom-link"><h4 data-i18n="experience.exp1.company">근무지</h4></a>
+                            <span class="timeline-date" data-i18n="experience.exp1.date">근무기간</span><br>
+                            <span data-i18n="experience.exp1.description"> 프로젝트 설명</span><br><br>
 
-                            <span>Service: Point Reward Service</span><br>
+                            <span data-i18n="experience.exp1.service1.title"></span><br>
                             <ul class="bullets">
-                                <li> Identified read-heavy, low-consistency-requirement data and implemented Ehcache-based local caching, intentionally limiting cache scope to minimize data consistency risks.</li>
-                                <li> <a href="eda-case-study.html" class="custom-link"> Applied an event-driven architecture with a transactional outbox pattern to decouple user point transactions from external settlement processing.</a></li>
-                                <li> <a href="ISMS-security.html" class="custom-link"> Strengthened backend security for ISMS compliance by implementing role-based access control, 2FA-based authentication flow, sensitive data encryption/masking, and audit log enhancements.</a></li>
-                                <li> <a href="springboot-upgrade.html" class="custom-link"> Upgraded a legacy backend from Spring Boot 2.x to 3.5 and Java 8 to 17, addressing Jakarta EE migration, ORM compatibility changes, and shutdown/test behavior changes in production.</a></li>
-                                <li> <a href="API-Optimization.html" class="custom-link"> Refactored a heavy account termination API by minimizing transactional scope and offloading non-critical operations to batch processing, reducing response time from ~1.25s to ~150ms and alleviating DB CPU spikes.</a></li>
-                                <li> <a href="Performance-Optimization.html" class="custom-link">Reduced critical query latency from ~16s (full table scan) to ~1ms by redesigning indexes and aligning SQL with real production access patterns, validated through execution plan analysis.</a></li>
-                                <li> <a href="expire-point.html" class="custom-link">Redesigned the point expiration system, resolving long-standing inconsistencies and recovering approximately ₩1B worth of expired points, improving settlement accuracy.</a></li>
-                                <li> <a href="problem-driven-engineering.html" class="custom-link"> Identified and resolved multiple production issues by redesigning point settlement, expiration, and reconciliation flows.</a></li>
-                                
+                                <li data-i18n="experience.exp1.service1.bullets.0"></li>
+                                <li data-i18n="experience.exp1.service1.bullets.1"></li>
+                                <li data-i18n="experience.exp1.service1.bullets.2"></li>
+                                <li data-i18n="experience.exp1.service1.bullets.3"></li>
+                                <li data-i18n="experience.exp1.service1.bullets.4"></li>
+                                <li data-i18n="experience.exp1.service1.bullets.5"></li>
+                                <li data-i18n="experience.exp1.service1.bullets.6"></li>
+                                <li data-i18n="experience.exp1.service1.bullets.7"></li>
                             </ul>
-                            <span>Tech Stack: Java 8, Java 17, Spring Boot, MariaDB</span><br><br>
+                            <span data-i18n="experience.exp1.service1.techStack"></span><br><br>
 
-                            <span>Service: Credit Card Benefits Service</span><br>
+                            <span data-i18n="experience.exp1.service2.title"></span><br>
                             <ul class="bullets">
-                                <li> Implemented unlimited pagination for event listing pages</li>
-                                <li> Configured a 10-minute session timeout for the admin system</li>
-                                <li> Introduced custom annotations to centralize and manage validation logic</li>
-                                <li> Integrated with external coupon providers and added coupon management features to the admin system</li>
+                                <li data-i18n="experience.exp1.service2.bullets.0"></li>
+                                <li data-i18n="experience.exp1.service2.bullets.1"></li>
+                                <li data-i18n="experience.exp1.service2.bullets.2"></li>
+                                <li data-i18n="experience.exp1.service2.bullets.3"></li>
                             </ul>
-                            <span>Tech Stack: Java, Spring Boot, JPA, Thymeleaf</span>
+                            <span data-i18n="experience.exp1.service2.techStack"></span><br><br>
+
                         </div>
                     </div>
 
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <h3>Backend Developer</h3>
-                            <h4><a href="https://www.vivans.net/" class="custom-link">VIVANS</a>, Seoul, S.Korea</h4>
-                            <span class="timeline-date">09.2020 - 07.2022 (1 year and 10 month)</span>
+                            <h3 data-i18n="experience.exp2.title">포지션</h3>
+                            <h4><a href="https://www.vivans.net/" class="custom-link" data-i18n="experience.exp2.company"></a></h4>
+                            <span class="timeline-date" data-i18n="experience.exp2.date">근무기간</span><br>
+
+                            <span data-i18n="experience.exp2.description"></span>
                             <ul class="bullets">
-                                <li>Developed Restful API using Spring Boot.</li>
-                                <li>Collaborated with the front-end developers and other teams to establish objectives and design codes. </li>
-                                <li>Deployed to the server using Docker and Docker-compose.</li>
+                                <li data-i18n="experience.exp2.bullets.0"></li>
+                                <li data-i18n="experience.exp2.bullets.1"></li>
+                                <li data-i18n="experience.exp2.bullets.2"></li>
                             </ul>
                         </div>
                     </div>
@@ -209,14 +200,14 @@
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <h3>APM/WAS Engineer</h3>
-                            <h4><a href="https://www.unipoint.co.kr/" class="custom-link">UNIPOINT</a>, Seoul, S.Korea</h4>
-                            <span class="timeline-date">02.2018 - 08.2020 (2 year and 6 month)</span>
+                            <h3 data-i18n="experience.exp3.title">포지션</h3>
+                            <h4><a href="https://www.unipoint.co.kr/" class="custom-link" data-i18n="experience.exp3.company"></a></h4>
+                            <span class="timeline-date" data-i18n="experience.exp3.date">근무기간</span><br>
                             <ul class="bullets">
-                                <li>Created technical reports for customers with charts and accurate data.</li>
-                                <li>Communicated with clients and coworkers about analysis results. </li>
-                                <li>Supported installation and TroubleShooting on the APM product (Jennifer) and WAS (IBM Websphere). </li>
-                                <li>Developed Custom Adaptors using Java as requested by customers. </li>
+                                <li data-i18n="experience.exp3.bullets.0"></li>
+                                <li data-i18n="experience.exp3.bullets.1"></li>
+                                <li data-i18n="experience.exp3.bullets.2"></li>
+                                <li data-i18n="experience.exp3.bullets.3"></li>
                             </ul>
                         </div>
                     </div>
@@ -227,66 +218,66 @@
         <!-- Key Skills Section -->
         <section id="projects" aria-labelledby="exp-heading">
             <div class="section-head">
-            <h2 id="exp-heading">Projects</h2>
+            <h2 id="exp-heading" data-i18n="projects.title">Projects</h2>
             </div>
 
             <article class="item" aria-labelledby="exp-1">
-            <h3 id="exp-1"><a href='https://github.com/Gongsamo-Korea/data-crawler' class="custom-link">Gongsamo Official Website</a></h3>
-            <div class="meta">A platform that connects young professionals in international development and provides curated newsletters.</div>
-            <div class="meta"><span>05.2023 — 12.2023</span><span>Remote</span></div>
+            <h3 id="exp-1"><a href='https://github.com/Gongsamo-Korea/data-crawler' class="custom-link" data-i18n="projects.project1.title">프로젝트1 이름</a></h3>
+            <div class="meta" data-i18n="projects.project1.meta">프로젝트1 설명</div>
+            <div class="meta"><span data-i18n="projects.project1.date">프로젝트1 날짜</span><span data-i18n="projects.project1.location">프로젝트1 위치</span></div>
             <ul class="bullets">
-                <li>Participated in building the first official website for the organization.</li>
-                <li>Crawled newsletter data using the BeautifulSoup library.</li>
-                <li>Stored data in both an RDBMS and ElasticSearch.</li>
-                <li>Scheduled shell scripts to run the Flask-based crawling API at regular intervals.</li>
+                <li data-i18n="projects.project1.bullets.0"></li>
+                <li data-i18n="projects.project1.bullets.1"></li>
+                <li data-i18n="projects.project1.bullets.2"></li>
+                <li data-i18n="projects.project1.bullets.3"></li>
             </ul>
-            <b>Tech Stack:</b> Python 3.11, Flask, MySQL, ElasticSearch
+            <span data-i18n="projects.project1.techStack"></span>
             </article>
 
             <article class="item" aria-labelledby="exp-2">
-            <h3 id="exp-2">Eat-it Server Development</h3>
-            <div class="meta">A contactless ordering application used in restaurants and university dining halls.</div>
-            <div class="meta"><span>03.2023 — 09.2023</span><span>Remote</span></div>
+            <h3 id="exp-2" data-i18n="projects.project2.title">Eat-it Server Development</h3>
+            <div class="meta" data-i18n="projects.project2.meta">프로젝트1 설명</div>
+            <div class="meta"><span data-i18n="projects.project2.date">프로젝트1 날짜</span><span data-i18n="projects.project1.location">프로젝트1 위치</span></div>
             <ul class="bullets">
-                <li>Developed APIs for restaurant owners (registration, update, and retrieval of restaurant information).</li>
-                <li>Led migration efforts for API upgrades by actively applying TDD and DDD principles.</li>
+                <li data-i18n="projects.project2.bullets.0"></li>
+                <li data-i18n="projects.project2.bullets.1"></li>
             </ul>
-            <b>Tech Stack:</b> Java 17, Spring Boot 3, MariaDB, JPA
+            <span data-i18n="projects.project2.techStack"></span>
             </article>
         </section>
 
         <!-- Skills Section -->
         <section id="skills" aria-labelledby="exp-heading">
             <div class="section-head">
-                <h2 id="exp-heading">Skills</h2>
+                <h2 id="exp-heading" data-i18n="skills.title">Skills</h2>
             </div>
             <div class="container">
                 <div class="skills-table-container">
                     <table class="skills-table">
                         <tbody>
                             <tr>
-                                <td class="skill-name">Java(8, 17)</td>
-                                <td class="skill-description">Write clean and concise code using lambda expressions and the Stream API; build RESTful APIs by leveraging new Java 17 features such as records.</td>
+                                <td class="skill-name" data-i18n="skills.skillsList.0.name"></td>
+                                <td class="skill-description" data-i18n="skills.skillsList.0.description"></td>
                             </tr>
                             <tr>
-                                <td class="skill-name">Python</td>
-                                <td class="skill-description">Collect data through web crawling and build RESTful APIs using Flask.</td>
+                                <td class="skill-name" data-i18n="skills.skillsList.1.name"></td>
+                                <td class="skill-description" data-i18n="skills.skillsList.1.description"></td>
                             </tr>
                             <tr>
-                                <td class="skill-name">Spring Boot</td>
-                                <td class="skill-description">Develop RESTful APIs with Spring Boot and Java; integrate databases using JPA; utilize annotations effectively; follow Test-Driven Development (TDD) practices.</td>
+                                <td class="skill-name" data-i18n="skills.skillsList.2.name"></td>
+                                <td class="skill-description" data-i18n="skills.skillsList.2.description"></td>
                             </tr>
                             <tr>
-                                <td class="skill-name">MySQL</td>
-                                <td class="skill-description">Design and create tables, write basic queries for data retrieval and manipulation, handle complex joins, identify slow queries, and perform performance tuning to optimize database efficiency.</td>
+                                <td class="skill-name" data-i18n="skills.skillsList.3.name"></td>
+                                <td class="skill-description" data-i18n="skills.skillsList.3.description"></td>
                             </tr>
                             <tr>
-                                <td class="skill-name">JPA / Hibernate</td>
-                                <td class="skill-description">Proficient in performing basic CRUD operations (create, read, update, delete) and handling database integration.</td>
+                                <td class="skill-name" data-i18n="skills.skillsList.4.name"></td>
+                                <td class="skill-description" data-i18n="skills.skillsList.4.description"></td>
                             </tr>
                             <tr>
-                                <td class="skill-name">Docker</td>
-                                <td class="skill-description">Build and deploy container images, configure container networks, and manage containerized environments.</td>
+                                <td class="skill-name" data-i18n="skills.skillsList.5.name"></td>
+                                <td class="skill-description" data-i18n="skills.skillsList.5.description"></td>
                             </tr>
                         </tbody>
                     </table>

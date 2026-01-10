@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <link rel="icon" type="image/png" href="IMG_1926.png">
+    <link rel="apple-touch-icon" href="IMG_1926.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-sub.css">
+
+</head>
+<body>
+    <div class="page" role="document">
+        <div class="case-study-container">
+            <a href="index.html#experience" class="back-link">
+                ← Back to Portfolio
+            </a>
+
+            <div class="case-study-header">
+                <h1 class="case-study-title">Cache Strategy for Read-heavy Configuration Data</h1>
+            </div>
+
+            <div class="overview-box">
+                <p>
+                    This page explains how I selected a local caching strategy instead of Redis to reduce database load and eliminate unnecessary overhead for frequently read data.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Context</h2>
+                <ul>
+                    <li> Configuration data such as attendance rules, event settings, and operational notices</li>
+                    <li> Frequently read but rarely updated</li>
+                    <li> Caused unnecessary DB connection usage during peak traffic</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Design Decision</h2>
+                <ul>
+                    <li> Applied local caching (Ehcache) since the data changes infrequently and does not require strong consistency</li>
+                    <li> Chose Ehcache over Redis to:
+                    <ul>
+                        <li> Eliminate network overhead</li>
+                        <li> Minimize operational complexity</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Implementation</h2>
+                <ul>
+                    <li>Implemented caching using Spring Cache Abstraction with Ehcache</li>
+                    <li>Applied TTL-based eviction policy</li>
+                    <li>Provided admin-triggered cache invalidation</li>
+                    <ul>
+                        <li> Cache is refreshed when notices are published or unpublished</li>
+                    </ul>
+                </ul>
+            </div>
+
+             <div class="content-section">
+                <h2>Result</h2>
+                <ul>
+                    <li>Eliminated DB access for configuration-related read APIs</li>
+                    <li>Stabilized DB connection usage during peak hours</li>
+                    <li>Limited cache usage to configuration data only, minimizing data consistency risks</li>
+                </ul>
+            </div>
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
+                <a href="index.html#experience" class="back-link">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

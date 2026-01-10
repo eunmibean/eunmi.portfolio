@@ -339,7 +339,7 @@ function updatePageLanguage() {
         const key = element.getAttribute('data-i18n');
         const translation = getTranslation(key);
         if (translation) {
-            element.textContent = translation;
+            element.innerHTML = translation;
         }
     });
 

@@ -3,70 +3,54 @@ const translations = {
     en: {
         // Header
         header: {
-            name: "Eunmi Kong",
+            title: "Emily (Eunmi) Kong | An initiative-driven software engineer",
+            name: "Emily (Eunmi) Kong",
             subtitle: "Software Engineer — JAVA & Driven by curiosity, shaped by collaboration, and always building what matters.",
             location: "Vancouver, Canada (planning move)"
         },
         // Summary Section
         summary: {
-            subtitle: "3+ years experience & Open to Work",
-            content: `I am someone who transforms inspiration into immediate action. <br><br>
-
-Through government-funded bootcamps and mentoring programs, I built strong learning skills and by joining international meetups and running study groups, I developed collaboration and leadership.
-I'm deeply drawn to development because the things I build can be shared with others and evolve into meaningful, valuable services.
-Through various projects, I've consistently taken initiative, challenged myself, and continued to grow. <br><br>
-
-As an API/WAS engineer for two years, I handled analysis, tuning, design, and deployment. As a developer for another two years, I built, deployed, and operated API services for an RPA automation solution
-while helping my team establish an efficient deployment culture. I also care about writing clean code and high-quality documentation to communicate effectively with others. <br><br>
-
-My journey in software development continues with the same passion and adventurous spirit as exploring a new place—always challenging myself and moving forward.`
+            subtitle: "4+ years experience & Open to Work",
+            content: `Backend engineer who owned a Point Reward Service serving the three major telecom carriers (SKT, KT, LG), 
+                    designing event-driven architectures to decouple user experience from external settlement systems and ensure reliability at scale.`
         },
         // Key Skills
         keySkills: {
             title: "Key Skills",
-            // skill1: {
-            //     title: "Technical Documentation",
-            //     meta: "Ability to create clear documents that effectively deliver knowledge and information to others and to myself.",
-            //     bullets: [
-            //         "Created API documentation, wiki pages, and history logs using screenshots and examples.",
-            //         "Wrote troubleshooting notes to quickly resolve recurring issues.",
-            //         "Visualized algorithms and system workflows to make complex concepts easy to understand."
-            //     ]
-            // },
-            skill2: {
-                title: "Communication Skills",
-                meta: "Ability to communicate comfortably across different ages, languages, and roles, and respond to requirements through smooth interaction.",
+            skill1: {
+                title: "System Design & Architecture",
+                meta: "Ability to design resilient backend systems under real-world constraints, separating user experience from asynchronous and failure-prone processes.",
                 bullets: [
-                    "Organized an internal movie club, creating a communication channel across various positions and enabling open, comfortable discussion.",
-                    "Communicated directly with frontend developers and PMs to precisely understand requirements.",
-                    "Reduced unnecessary translation time by communicating directly in English with overseas teams and global clients."
+                    "Designed an event-driven architecture using Spring Application Events to decouple user point transactions from external settlement systems.",
+                    "Applied a DB-based Transactional Outbox pattern with batch processing in a network-restricted environment where message brokers were not feasible.",
+                    "Separated synchronous user-facing logic from asynchronous settlement, retry, and reconciliation processes to improve system resilience.",
+                    "Redesigned expiration and settlement flows to guarantee ordering, idempotency, and consistency."
+                ]
+            },
+            skill2: {
+                title: "Reliability & Operational Excellence",
+                meta: "Experience improving system stability, performance, and operational reliability through architectural changes and performance tuning.",
+                bullets: [
+                    "Reduced API response time from ~1250ms to ~150ms by splitting heavy transactional logic into asynchronous batch processes.",
+                    "Identified and resolved database CPU spikes (up to 90%) caused by concurrent traffic by redesigning API responsibilities.",
+                    "Collaborated with DBAs to analyze slow queries, optimize execution plans, and improve performance from full table scans (~16s) to indexed lookups (~0.001s).",
+                    "Improved data consistency and operational accuracy by redesigning daily batch processes and retry strategies."
                 ]
             },
             skill3: {
-                title: "Data Handling & Performance Optimization",
-                meta: "Ability to analyze data and improve systems for more flexible and efficient services.",
+                title: "Communication & Collaboration",
                 bullets: [
-                    "Improved query speed and search efficiency by migrating from MySQL to Elasticsearch.",
-                    "Tuned an API query that took over 10 seconds, significantly reducing response time.",
-                    "Designed strategies using Redis to limit failed password attempts and reduce database load."
+                    "Communicated closely with frontend engineers and PMs to translate ambiguous business requirements into clear backend contracts.",
+                    "Coordinated with DBAs and operations teams to diagnose performance bottlenecks and apply production-safe improvements.",
+                    "Worked directly with overseas teams in English, reducing delays caused by indirect communication."
                 ]
             },
             skill4: {
-                title: "Server Setup & Operations",
-                meta: "Ability to build and operate servers in on-premise and SaaS environments using Docker.",
+                title: "Data Handling & Performance Optimization",
                 bullets: [
-                    "Built and managed an API test server using nginx and Docker.",
-                    "Stored API server images in a Docker repository for version control and deployment.",
-                    "Deployed personal projects to Google Cloud to gather user experience and feedback."
-                ]
-            },
-            skill5: {
-                title: "Development Environment Improvement",
-                meta: "Ability to enhance workflows and maintainability for more efficient development.",
-                bullets: [
-                    "Applied insights from a Clean Code study group to refactor real-world codebases.",
-                    "Introduced test code to existing APIs and promoted mandatory test coverage using Rest Docs.",
-                    "Implemented Git Flow branch strategy to reduce confusion and keep version history organized."
+                    "Optimized slow database queries in collaboration with DBAs, improving execution plans from full table scans to indexed range scans.",
+                    "Reduced critical API latency from seconds to milliseconds through query tuning and architectural refactoring.",
+                    "Applied caching strategies (Ehcache/Redis) to reduce database connections for rarely changing configuration and event data."
                 ]
             }
         },
@@ -76,28 +60,55 @@ My journey in software development continues with the same passion and adventuro
             exp1: {
                 title: "Backend Developer",
                 company: "HECTO INNOVATION, Seoul, S.Korea",
-                date: "09.2023 - Present (2 year and 3 month)",
-                description: `- Enhanced reward system by redesigning architecture and implementing detailed monitoring and EDA. <br>
-- Upgraded Spring Boot from version 2.x to 3.3.0, resolving compatibility issues. <br>
-- Improved push notification performance by implementing multithreaded processing using thread pools and automating scheduling via the admin dashboard. <br>
-- Reduced database load and connection usage by applying caching strategies and reindexing large tables for optimized query performance.`
+                date: "09.2023 - Present (2 year and 5 month)",
+                description: "Worked on multiple services, focusing on backend development and business logic implementation.",
+                service1: {
+                    title: "Service: Point Reward Service for the three major telecom carriers (SKT, KT, LG)",
+                    bullets: [
+                        `<a href='local-caching.html' class='custom-link'>Identified read-heavy, low-consistency-requirement data and implemented Ehcache-based local caching, intentionally limiting cache scope to minimize data consistency risks.</a>`,
+                        `<a href="eda-case-study.html" class="custom-link"> Applied an event-driven architecture with a transactional outbox pattern to decouple user point transactions from external settlement processing.</a>`,
+                        `<a href="ISMS-security.html" class="custom-link"> Strengthened backend security for ISMS compliance by implementing role-based access control, 2FA-based authentication flow, sensitive data encryption/masking, and audit log enhancements.</a>`,
+                        `<a href="springboot-upgrade.html" class="custom-link"> Upgraded a legacy backend from Spring Boot 2.x to 3.5 and Java 8 to 17, addressing Jakarta EE migration, ORM compatibility changes, and shutdown/test behavior changes in production.</a>`,
+                        `<a href="API-Optimization.html" class="custom-link"> Refactored a heavy account termination API by minimizing transactional scope and offloading non-critical operations to batch processing, reducing response time from ~1.25s to ~150ms and alleviating DB CPU spikes.</a>`,
+                        `<a href="Performance-Optimization.html" class="custom-link">Reduced critical query latency from ~16s (full table scan) to ~1ms by redesigning indexes and aligning SQL with real production access patterns, validated through execution plan analysis.</a>`,
+                        `<a href="expire-point.html" class="custom-link">Redesigned the point expiration system, resolving long-standing inconsistencies and recovering approximately ₩1B worth of expired points, improving settlement accuracy.</a>`,
+                        `<a href="problem-driven-engineering.html" class="custom-link"> Identified and resolved multiple production issues by redesigning point settlement, expiration, and reconciliation flows.</a>`
+                    ],
+                    techStack: "Tech Stack: Java 8 & 17, Spring Boot2 & 3, MariaDB",
+                },
+                service2: {
+                    title: "Service: Credit Card Benefits Service",
+                    bullets: [
+                        `Implemented unlimited pagination for event listing pages`,
+                        `Configured a 10-minute session timeout for the admin system`,
+                        `Introduced custom annotations to centralize and manage validation logic`,
+                        `Integrated with external coupon providers and added coupon management features to the admin system`
+                    ],
+                    techStack: "Tech Stack: Java, Spring Boot, JPA, Thymeleaf"
+                }
             },
             exp2: {
                 title: "Backend Developer",
                 company: "VIVANS, Seoul, S.Korea",
                 date: "09.2020 - 07.2022 (1 year and 10 month)",
-                description: `- Developed Restful API using Spring Boot. <br>
-- Collaborated with the front-end developers and other teams to establish objectives and design codes. <br>
-- Deployed to the server using Docker and Docker-compose.`
+                description: "Built and operated an RPA platform (ARGOS RPA) delivering automated workflows for domestic and international clients.",
+                bullets: [
+                    `Developed RESTful APIs using Spring Boot for an RPA automation platform.`,
+                    `Improved development quality through test code implementation, refactoring, and architectural enhancements.`,
+                    `Containerized and deployed services using Docker and Docker Compose to streamline server operations.`,
+                ],
+                techStack: ""
             },
             exp3: {
                 title: "APM/WAS Engineer",
                 company: "UNIPOINT, Seoul, S.Korea",
                 date: "02.2018 - 08.2020 (2 year and 6 month)",
-                description: `- Created technical reports for customers with charts and accurate data. <br>
-- Communicated with clients and coworkers about analysis results. <br>
-- Supported installation and TroubleShooting on the APM product (Jennifer) and WAS (IBM Websphere). <br>
-- Developed Custom Adaptors using Java as requested by customers.`
+                bullets: [
+                    `Collaborated closely with clients and internal teams to explain analysis results and propose system-level improvements.`,
+                    `Supported installation, configuration, and troubleshooting of APM solutions (Jennifer) and enterprise WAS environments (IBM WebSphere).`,
+                    `Developed customer-specific Java-based custom adapters to extend APM functionality and meet unique monitoring requirements.`,
+                    `Delivered customer-facing technical reports with accurate metrics and visualized charts to support performance analysis and decision-making.`
+                ]
             }
         },
         // Projects
@@ -114,7 +125,7 @@ My journey in software development continues with the same passion and adventuro
                     "Stored data in both an RDBMS and ElasticSearch.",
                     "Scheduled shell scripts to run the Flask-based crawling API at regular intervals."
                 ],
-                techStack: "Tech Stack:"
+                techStack: `<b>Tech Stack:</b> Python 3.11, Flask, MySQL, ElasticSearch`
             },
             project2: {
                 title: "Eat-it Server Development",
@@ -125,7 +136,7 @@ My journey in software development continues with the same passion and adventuro
                     "Developed APIs for restaurant owners (registration, update, and retrieval of restaurant information).",
                     "Led migration efforts for API upgrades by actively applying TDD and DDD principles."
                 ],
-                techStack: "Tech Stack:"
+                techStack: "<b>Tech Stack:</b> Java 17, Spring Boot 3, MariaDB, JPA"
             }
         },
         // Skills
