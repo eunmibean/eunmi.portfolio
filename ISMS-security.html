@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <title data-i18n="page.title">ISMS Security Hardening & Vulnerability Remediation Case Study | Eunmi Kong</title>
     <link rel="icon" type="image/png" href="IMG_1926.png">
     <link rel="apple-touch-icon" href="IMG_1926.png">
     <link rel="stylesheet" href="style.css">
@@ -12,62 +12,201 @@
 <body>
     <div class="page" role="document">
         <div class="case-study-container">
-            <a href="index.html#experience" class="back-link">
+            <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                 ← Back to Portfolio
             </a>
 
             <div class="case-study-header">
-                <h1 class="case-study-title">ISMS Security Hardening & Vulnerability Remediation</h1>
+                <h1 class="case-study-title" data-i18n="page.mainTitle">ISMS Security Hardening & Vulnerability Remediation</h1>
             </div>
 
             <div class="overview-box">
-                <p>
+                <p data-i18n="page.overview">
                     This page documents the work I led while preparing for and responding to the KISA(Korea Internet & Security Agency) ISMS security audit.
                     I proactively reviewed existing authentication, access control, and personal data handling mechanisms, identified security gaps raised during the audit, and implemented improvements to meet ISMS requirements without compromising operational usability.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2>Key Improvements</h2>
-                <h3>1. Authentication & Authorization</h3>
+                <h2 data-i18n="page.improvements.title">Key Improvements</h2>
+                <h3 data-i18n="page.improvements.section1.title">1. Authentication & Authorization</h3>
                 <ul>
-                    <li> Enforced role-based access control for sensitive operations (e.g., settlement file downloads) </li>
-                    <li> Introduced token expiration policies and tightened session handling </li>
-                    <li> Modified authentication flow to issue access tokens only after successful OTP verification</li>
+                    <li data-i18n="page.improvements.section1.item1"> Enforced role-based access control for sensitive operations (e.g., settlement file downloads) </li>
+                    <li data-i18n="page.improvements.section1.item2"> Introduced token expiration policies and tightened session handling </li>
+                    <li data-i18n="page.improvements.section1.item3"> Modified authentication flow to issue access tokens only after successful OTP verification</li>
                 </ul>
 
-                <h3>2. Personal Data Protection</h3>
+                <h3 data-i18n="page.improvements.section2.title">2. Personal Data Protection</h3>
                 <ul>
-                    <li> Encrypted or masked sensitive administrator information (name, phone number, OTP codes)</li>
-                    <li> Separated personal data into dedicated columns for controlled access</li>
-                    <li> Improved data retention and deletion policies for terminated accounts</li>
+                    <li data-i18n="page.improvements.section2.item1"> Encrypted or masked sensitive administrator information (name, phone number, OTP codes)</li>
+                    <li data-i18n="page.improvements.section2.item2"> Separated personal data into dedicated columns for controlled access</li>
+                    <li data-i18n="page.improvements.section2.item3"> Improved data retention and deletion policies for terminated accounts</li>
                 </ul>
 
-                <h3>3. Auditability & Traceability</h3>
+                <h3 data-i18n="page.improvements.section3.title">3. Auditability & Traceability</h3>
                 <ul>
-                    <li> Enhanced admin action logs for password changes and sensitive operations</li>
-                    <li> Improved history tracking for admin creation, update, and deletion events</li>
-                    <li> Ensured security-relevant actions are traceable for audit purposes</li>
+                    <li data-i18n="page.improvements.section3.item1"> Enhanced admin action logs for password changes and sensitive operations</li>
+                    <li data-i18n="page.improvements.section3.item2"> Improved history tracking for admin creation, update, and deletion events</li>
+                    <li data-i18n="page.improvements.section3.item3"> Ensured security-relevant actions are traceable for audit purposes</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Outcome</h2>
+                <h2 data-i18n="page.outcome.title">Outcome</h2>
                 <ul>
-                    <li> Successfully passed ISMS security audit</li>
-                    <li> Reduced exposure of sensitive data</li>
-                    <li> Improved security posture and operational confidence</li>
+                    <li data-i18n="page.outcome.item1"> Successfully passed ISMS security audit</li>
+                    <li data-i18n="page.outcome.item2"> Reduced exposure of sensitive data</li>
+                    <li data-i18n="page.outcome.item3"> Improved security posture and operational confidence</li>
                 </ul>
             </div>
 
             <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
-                <a href="index.html#experience" class="back-link">
+                <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                     ← Back to Portfolio
                 </a>
             </div>
         </div>
     </div>
 
+    <script>
+        // Page-local translations
+        const pageTranslations = {
+            en: {
+                page: {
+                    title: "ISMS Security Hardening & Vulnerability Remediation Case Study | Eunmi Kong",
+                    backLink: "← Back to Portfolio",
+                    mainTitle: "ISMS Security Hardening & Vulnerability Remediation",
+                    overview: "This page documents the work I led while preparing for and responding to the KISA(Korea Internet & Security Agency) ISMS security audit. I proactively reviewed existing authentication, access control, and personal data handling mechanisms, identified security gaps raised during the audit, and implemented improvements to meet ISMS requirements without compromising operational usability.",
+                    improvements: {
+                        title: "Key Improvements",
+                        section1: {
+                            title: "1. Authentication & Authorization",
+                            item1: "Enforced role-based access control for sensitive operations (e.g., settlement file downloads)",
+                            item2: "Introduced token expiration policies and tightened session handling",
+                            item3: "Modified authentication flow to issue access tokens only after successful OTP verification"
+                        },
+                        section2: {
+                            title: "2. Personal Data Protection",
+                            item1: "Encrypted or masked sensitive administrator information (name, phone number, OTP codes)",
+                            item2: "Separated personal data into dedicated columns for controlled access",
+                            item3: "Improved data retention and deletion policies for terminated accounts"
+                        },
+                        section3: {
+                            title: "3. Auditability & Traceability",
+                            item1: "Enhanced admin action logs for password changes and sensitive operations",
+                            item2: "Improved history tracking for admin creation, update, and deletion events",
+                            item3: "Ensured security-relevant actions are traceable for audit purposes"
+                        }
+                    },
+                    outcome: {
+                        title: "Outcome",
+                        item1: "Successfully passed ISMS security audit",
+                        item2: "Reduced exposure of sensitive data",
+                        item3: "Improved security posture and operational confidence"
+                    }
+                }
+            },
+            ko: {
+                page: {
+                    title: "ISMS 보안 강화 및 취약점 개선 사례 연구 | 공은미",
+                    backLink: "← 포트폴리오로 돌아가기",
+                    mainTitle: "ISMS 보안 강화 및 취약점 개선",
+                    overview: "이 페이지는 KISA(한국인터넷진흥원) ISMS 보안 심사를 준비하고 대응하는 과정에서 제가 주도한 작업을 문서화합니다. 기존 인증, 접근 제어, 개인정보 처리 메커니즘을 사전에 검토하고, 심사 과정에서 제기된 보안 격차를 식별하며, 운영 사용성을 저해하지 않으면서 ISMS 요구사항을 충족하는 개선 사항을 구현했습니다.",
+                    improvements: {
+                        title: "주요 개선사항",
+                        section1: {
+                            title: "1. 인증 및 권한 부여",
+                            item1: "민감한 작업(예: 정산 파일 다운로드)에 대한 역할 기반 접근 제어 강화",
+                            item2: "토큰 만료 정책 도입 및 세션 처리 강화",
+                            item3: "OTP 검증 성공 후에만 액세스 토큰을 발급하도록 인증 흐름 수정"
+                        },
+                        section2: {
+                            title: "2. 개인정보 보호",
+                            item1: "민감한 관리자 정보(이름, 전화번호, OTP 코드) 암호화 또는 마스킹",
+                            item2: "개인정보를 전용 컬럼으로 분리하여 통제된 접근 구현",
+                            item3: "탈퇴 계정에 대한 데이터 보관 및 삭제 정책 개선"
+                        },
+                        section3: {
+                            title: "3. 감사 가능성 및 추적성",
+                            item1: "비밀번호 변경 및 민감한 작업에 대한 관리자 작업 로그 강화",
+                            item2: "관리자 생성, 수정, 삭제 이벤트에 대한 이력 추적 개선",
+                            item3: "보안 관련 작업이 감사 목적으로 추적 가능하도록 보장"
+                        }
+                    },
+                    outcome: {
+                        title: "결과",
+                        item1: "ISMS 보안 심사 통과",
+                        item2: "민감한 데이터 노출 감소",
+                        item3: "보안 태세 및 운영 신뢰성 향상"
+                    }
+                }
+            }
+        };
+
+        // Get translation by path
+        function getPageTranslation(path) {
+            const lang = getCurrentLanguage();
+            const keys = path.split('.');
+            let value = pageTranslations[lang];
+
+            for (const key of keys) {
+                if (value && typeof value === 'object') {
+                    value = value[key];
+                } else {
+                    return null;
+                }
+            }
+
+            return value;
+        }
+
+        // Update all translatable content
+        function updatePageContent() {
+            const lang = getCurrentLanguage();
+
+            // Update title
+            document.title = getPageTranslation('page.title') || document.title;
+
+            // Update elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update elements with data-i18n-html
+            document.querySelectorAll('[data-i18n-html]').forEach(element => {
+                const key = element.getAttribute('data-i18n-html');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.innerHTML = translation;
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Get current language from localStorage
+        function getCurrentLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            return (saved === 'ko' || saved === 'en') ? saved : 'en';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePageContent();
+
+            // Listen for language changes from other pages
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'preferredLanguage') {
+                    updatePageContent();
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

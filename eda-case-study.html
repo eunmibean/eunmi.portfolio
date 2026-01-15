@@ -3,47 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <title data-i18n="page.title">Event-Driven Architecture Case Study | Eunmi Kong</title>
     <link rel="icon" type="image/png" href="IMG_1926.png">
     <link rel="apple-touch-icon" href="IMG_1926.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-sub.css">
-
 </head>
 <body>
     <div class="page" role="document">
         <div class="case-study-container">
-            <a href="index.html#experience" class="back-link">
+            <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                 ← Back to Portfolio
             </a>
 
             <div class="case-study-header">
-                <h1 class="case-study-title">Event-Driven Architecture with Transactional Outbox Pattern</h1>
+                <h1 class="case-study-title" data-i18n="page.mainTitle">Event-Driven Architecture with Transactional Outbox Pattern</h1>
             </div>
 
             <div class="overview-box">
-                <p>
+                <p data-i18n="page.overview">
                     This page describes how I introduced an Event-Driven Architecture using Spring Application Events and a Transactional Outbox pattern to decouple user-facing point transactions from an external settlement system, ensuring that settlement failures do not impact user experience.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2>Background</h2>
+                <h2 data-i18n="page.background.title">Background</h2>
                 <ul>
-                    <li>Point settlement was previously handled entirely within the internal system.</li>
-                    <li>To increase point usage and support more redemption channels, integration with a licensed external settlement provider became necessary.</li>
-                    <li>It was critical to decouple user-facing point transactions from the settlement process to prevent external failures from affecting user experience.</li>
-                    <li>A Transactional Outbox pattern was adopted to enable reliable asynchronous processing.</li>
+                    <li data-i18n="page.background.item1">Point settlement was previously handled entirely within the internal system.</li>
+                    <li data-i18n="page.background.item2">To increase point usage and support more redemption channels, integration with a licensed external settlement provider became necessary.</li>
+                    <li data-i18n="page.background.item3">It was critical to decouple user-facing point transactions from the settlement process to prevent external failures from affecting user experience.</li>
+                    <li data-i18n="page.background.item4">A Transactional Outbox pattern was adopted to enable reliable asynchronous processing.</li>
                 </ul>
 
                 <div class="stats-box">
-                    <h4>Daily Transaction Volume</h4>
+                    <h4 data-i18n="page.stats.title">Daily Transaction Volume</h4>
                     <ul>
-                        <li>KT: approximately 60–70K events/day</li>
-                        <li>SKT: approximately 20–30K events/day</li>
-                        <li>LG: approximately 20–30K events/day</li>
+                        <li data-i18n="page.stats.kt">KT: approximately 60–70K events/day</li>
+                        <li data-i18n="page.stats.skt">SKT: approximately 20–30K events/day</li>
+                        <li data-i18n="page.stats.lg">LG: approximately 20–30K events/day</li>
                     </ul>
-                    <p>
+                    <p data-i18n="page.stats.note">
                         Although a message broker such as Kafka was considered, the operational complexity and cost in a restricted, no-internet environment outweighed the benefits at this scale.
                         A DB-backed outbox pattern with batch processing was therefore chosen as the most practical solution.
                     </p>
@@ -51,69 +50,271 @@
             </div>
 
             <div class="content-section">
-                <h2>Architecture Summary</h2>
+                <h2 data-i18n="page.architecture.title">Architecture Summary</h2>
                 <ul>
-                    <li>Decoupled user point transactions from the external settlement system using an event-driven approach.</li>
-                    <li>Published domain events using Spring <code>publishEvent</code>.</li>
-                    <li>Consumed events via <code>eventListener</code> and persisted them in a transactional outbox table.</li>
-                    <li>Processed outbox events asynchronously through batch jobs to invoke the external settlement API.</li>
-                    <li>Implemented retry and failure-handling strategies to isolate external system issues from user-facing flows.</li>
+                    <li data-i18n-html="page.architecture.item1">Decoupled user point transactions from the external settlement system using an event-driven approach.</li>
+                    <li data-i18n-html="page.architecture.item2">Published domain events using Spring <code>publishEvent</code>.</li>
+                    <li data-i18n-html="page.architecture.item3">Consumed events via <code>eventListener</code> and persisted them in a transactional outbox table.</li>
+                    <li data-i18n-html="page.architecture.item4">Processed outbox events asynchronously through batch jobs to invoke the external settlement API.</li>
+                    <li data-i18n-html="page.architecture.item5">Implemented retry and failure-handling strategies to isolate external system issues from user-facing flows.</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Key Points</h2>
+                <h2 data-i18n="page.keyPoints.title">Key Points</h2>
                     <ul>
-                        <li>Spring <code>publishEvent</code> / <code>eventListener</code></li>
-                        <li>Transactional Outbox Pattern</li>
-                        <li>Asynchronous batch polling</li>
-                        <li>Decoupling of user-facing transactions and external integration logic</li>
-                        <li>Retry and failure-handling strategy for external API calls</li>
-                        <li>Sequential ordering guarantees for settlement requests</li>
+                        <li data-i18n-html="page.keyPoints.item1">Spring <code>publishEvent</code> / <code>eventListener</code></li>
+                        <li data-i18n="page.keyPoints.item2">Transactional Outbox Pattern</li>
+                        <li data-i18n="page.keyPoints.item3">Asynchronous batch polling</li>
+                        <li data-i18n="page.keyPoints.item4">Decoupling of user-facing transactions and external integration logic</li>
+                        <li data-i18n="page.keyPoints.item5">Retry and failure-handling strategy for external API calls</li>
+                        <li data-i18n="page.keyPoints.item6">Sequential ordering guarantees for settlement requests</li>
                     </ul>
             </div>
 
             <div class="content-section">
-                <h2>Troubleshooting</h2>
-                <h3>1. Ordering Guarantee Issue for Settlement Requests</h3>
-                
-                    <h4>Problem</h4>
+                <h2 data-i18n="page.troubleshooting.title">Troubleshooting</h2>
+                <h3 data-i18n="page.troubleshooting.issue1.title">1. Ordering Guarantee Issue for Settlement Requests</h3>
+
+                    <h4 data-i18n="page.troubleshooting.issue1.problemTitle">Problem</h4>
                     <ul>
-                        <li>Outbox events were initially processed in order of creation time.</li>
-                        <li>The timestamp column stored values only up to second-level precision (<code>YYYY-MM-DD HH:mm:ss</code>).</li>
-                        <li>When multiple events were created within the same second, their processing order could not be guaranteed.</li>
-                    </ul>
-        
-                    <h4>Solution</h4>
-                    <ul>
-                        <li>Introduced an auto-increment <code>seq</code> column.</li>
-                        <li>Sorted events by this sequence value to ensure deterministic processing order.</li>
+                        <li data-i18n="page.troubleshooting.issue1.problem1">Outbox events were initially processed in order of creation time.</li>
+                        <li data-i18n-html="page.troubleshooting.issue1.problem2">The timestamp column stored values only up to second-level precision (<code>YYYY-MM-DD HH:mm:ss</code>).</li>
+                        <li data-i18n="page.troubleshooting.issue1.problem3">When multiple events were created within the same second, their processing order could not be guaranteed.</li>
                     </ul>
 
-                <h3>2. Point Expiration Timing Mismatch</h3>
-
-                    <h4>Problem</h4>
+                    <h4 data-i18n="page.troubleshooting.issue1.solutionTitle">Solution</h4>
                     <ul>
-                        <li>External settlement provider expired points between 00:03 and 00:10.</li>
-                        <li>The internal service executed point expiration at 00:02.</li>
-                        <li>This timing mismatch caused temporary balance inconsistencies.</li>
+                        <li data-i18n-html="page.troubleshooting.issue1.solution1">Introduced an auto-increment <code>seq</code> column.</li>
+                        <li data-i18n="page.troubleshooting.issue1.solution2">Sorted events by this sequence value to ensure deterministic processing order.</li>
                     </ul>
-                    <h4>Solution</h4>
+
+                <h3 data-i18n="page.troubleshooting.issue2.title">2. Point Expiration Timing Mismatch</h3>
+
+                    <h4 data-i18n="page.troubleshooting.issue2.problemTitle">Problem</h4>
                     <ul>
-                        <li>Redesigned the retry strategy.</li>
-                        <li>Gradually increased retry intervals based on <code>RETRY_COUNT</code>, from 5 seconds up to 10 minutes.</li>
-                        <li>Improved handling logic to absorb temporary inconsistencies caused by timing differences.</li>
+                        <li data-i18n="page.troubleshooting.issue2.problem1">External settlement provider expired points between 00:03 and 00:10.</li>
+                        <li data-i18n="page.troubleshooting.issue2.problem2">The internal service executed point expiration at 00:02.</li>
+                        <li data-i18n="page.troubleshooting.issue2.problem3">This timing mismatch caused temporary balance inconsistencies.</li>
+                    </ul>
+                    <h4 data-i18n="page.troubleshooting.issue2.solutionTitle">Solution</h4>
+                    <ul>
+                        <li data-i18n="page.troubleshooting.issue2.solution1">Redesigned the retry strategy.</li>
+                        <li data-i18n-html="page.troubleshooting.issue2.solution2">Gradually increased retry intervals based on <code>RETRY_COUNT</code>, from 5 seconds up to 10 minutes.</li>
+                        <li data-i18n="page.troubleshooting.issue2.solution3">Improved handling logic to absorb temporary inconsistencies caused by timing differences.</li>
                     </ul>
             </div>
 
             <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
-                <a href="index.html#experience" class="back-link">
+                <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                     ← Back to Portfolio
                 </a>
             </div>
         </div>
     </div>
 
+    <script>
+        // Page-local translations
+        const pageTranslations = {
+            en: {
+                page: {
+                    title: "Event-Driven Architecture Case Study | Eunmi Kong",
+                    backLink: "← Back to Portfolio",
+                    mainTitle: "Event-Driven Architecture with Transactional Outbox Pattern",
+                    overview: "This page describes how I introduced an Event-Driven Architecture using Spring Application Events and a Transactional Outbox pattern to decouple user-facing point transactions from an external settlement system, ensuring that settlement failures do not impact user experience.",
+                    background: {
+                        title: "Background",
+                        item1: "Point settlement was previously handled entirely within the internal system.",
+                        item2: "To increase point usage and support more redemption channels, integration with a licensed external settlement provider became necessary.",
+                        item3: "It was critical to decouple user-facing point transactions from the settlement process to prevent external failures from affecting user experience.",
+                        item4: "A Transactional Outbox pattern was adopted to enable reliable asynchronous processing."
+                    },
+                    stats: {
+                        title: "Daily Transaction Volume",
+                        kt: "KT: approximately 60–70K events/day",
+                        skt: "SKT: approximately 20–30K events/day",
+                        lg: "LG: approximately 20–30K events/day",
+                        note: "Although a message broker such as Kafka was considered, the operational complexity and cost in a restricted, no-internet environment outweighed the benefits at this scale. A DB-backed outbox pattern with batch processing was therefore chosen as the most practical solution."
+                    },
+                    architecture: {
+                        title: "Architecture Summary",
+                        item1: "Decoupled user point transactions from the external settlement system using an event-driven approach.",
+                        item2: "Published domain events using Spring <code>publishEvent</code>.",
+                        item3: "Consumed events via <code>eventListener</code> and persisted them in a transactional outbox table.",
+                        item4: "Processed outbox events asynchronously through batch jobs to invoke the external settlement API.",
+                        item5: "Implemented retry and failure-handling strategies to isolate external system issues from user-facing flows."
+                    },
+                    keyPoints: {
+                        title: "Key Points",
+                        item1: "Spring <code>publishEvent</code> / <code>eventListener</code>",
+                        item2: "Transactional Outbox Pattern",
+                        item3: "Asynchronous batch polling",
+                        item4: "Decoupling of user-facing transactions and external integration logic",
+                        item5: "Retry and failure-handling strategy for external API calls",
+                        item6: "Sequential ordering guarantees for settlement requests"
+                    },
+                    troubleshooting: {
+                        title: "Troubleshooting",
+                        issue1: {
+                            title: "1. Ordering Guarantee Issue for Settlement Requests",
+                            problemTitle: "Problem",
+                            problem1: "Outbox events were initially processed in order of creation time.",
+                            problem2: "The timestamp column stored values only up to second-level precision (<code>YYYY-MM-DD HH:mm:ss</code>).",
+                            problem3: "When multiple events were created within the same second, their processing order could not be guaranteed.",
+                            solutionTitle: "Solution",
+                            solution1: "Introduced an auto-increment <code>seq</code> column.",
+                            solution2: "Sorted events by this sequence value to ensure deterministic processing order."
+                        },
+                        issue2: {
+                            title: "2. Point Expiration Timing Mismatch",
+                            problemTitle: "Problem",
+                            problem1: "External settlement provider expired points between 00:03 and 00:10.",
+                            problem2: "The internal service executed point expiration at 00:02.",
+                            problem3: "This timing mismatch caused temporary balance inconsistencies.",
+                            solutionTitle: "Solution",
+                            solution1: "Redesigned the retry strategy.",
+                            solution2: "Gradually increased retry intervals based on <code>RETRY_COUNT</code>, from 5 seconds up to 10 minutes.",
+                            solution3: "Improved handling logic to absorb temporary inconsistencies caused by timing differences."
+                        }
+                    }
+                }
+            },
+            ko: {
+                page: {
+                    title: "이벤트 주도 아키텍처 사례 연구 | 공은미",
+                    backLink: "← 포트폴리오로 돌아가기",
+                    mainTitle: "Transactional Outbox 패턴을 활용한 이벤트 주도 아키텍처",
+                    overview: "이 페이지는 Spring Application Events와 Transactional Outbox 패턴을 사용한 이벤트 주도 아키텍처를 도입하여 사용자 대면 포인트 트랜잭션을 외부 정산 시스템으로부터 분리하고 정산 실패가 사용자 경험에 영향을 미치지 않도록 한 과정을 설명합니다.",
+                    background: {
+                        title: "배경",
+                        item1: "포인트 정산은 이전에 내부 시스템에서 전적으로 처리되었습니다.",
+                        item2: "포인트 사용을 늘리고 더 많은 환급 채널을 지원하기 위해 라이선스가 있는 외부 정산 제공업체와의 통합이 필요했습니다.",
+                        item3: "외부 장애가 사용자 경험에 영향을 미치지 않도록 사용자 대면 포인트 트랜잭션을 정산 프로세스로부터 분리하는 것이 중요했습니다.",
+                        item4: "신뢰할 수 있는 비동기 처리를 가능하게 하기 위해 Transactional Outbox 패턴을 채택했습니다."
+                    },
+                    stats: {
+                        title: "일일 트랜잭션 볼륨",
+                        kt: "KT: 약 60–70K 이벤트/일",
+                        skt: "SKT: 약 20–30K 이벤트/일",
+                        lg: "LG: 약 20–30K 이벤트/일",
+                        note: "Kafka와 같은 메시지 브로커가 고려되었지만, 인터넷이 제한된 환경에서 운영 복잡성과 비용이 이 규모에서 이점을 초과했습니다. 따라서 배치 처리를 사용하는 DB 기반 Outbox 패턴이 가장 실용적인 솔루션으로 선택되었습니다."
+                    },
+                    architecture: {
+                        title: "아키텍처 요약",
+                        item1: "이벤트 주도 접근 방식을 사용하여 사용자 포인트 트랜잭션을 외부 정산 시스템으로부터 분리했습니다.",
+                        item2: "Spring <code>publishEvent</code>를 사용하여 도메인 이벤트를 발행했습니다.",
+                        item3: "<code>eventListener</code>를 통해 이벤트를 소비하고 트랜잭션 Outbox 테이블에 저장했습니다.",
+                        item4: "배치 작업을 통해 Outbox 이벤트를 비동기적으로 처리하여 외부 정산 API를 호출했습니다.",
+                        item5: "외부 시스템 문제를 사용자 대면 플로우로부터 격리하기 위해 재시도 및 장애 처리 전략을 구현했습니다."
+                    },
+                    keyPoints: {
+                        title: "핵심 포인트",
+                        item1: "Spring <code>publishEvent</code> / <code>eventListener</code>",
+                        item2: "Transactional Outbox 패턴",
+                        item3: "비동기 배치 폴링",
+                        item4: "사용자 대면 트랜잭션과 외부 통합 로직의 분리",
+                        item5: "외부 API 호출을 위한 재시도 및 장애 처리 전략",
+                        item6: "정산 요청에 대한 순차적 순서 보장"
+                    },
+                    troubleshooting: {
+                        title: "트러블슈팅",
+                        issue1: {
+                            title: "1. 정산 요청에 대한 순서 보장 문제",
+                            problemTitle: "문제",
+                            problem1: "Outbox 이벤트는 처음에 생성 시간 순서로 처리되었습니다.",
+                            problem2: "타임스탬프 컬럼은 초 단위 정밀도(<code>YYYY-MM-DD HH:mm:ss</code>)까지만 값을 저장했습니다.",
+                            problem3: "동일한 초 내에 여러 이벤트가 생성되면 처리 순서를 보장할 수 없었습니다.",
+                            solutionTitle: "해결책",
+                            solution1: "자동 증가 <code>seq</code> 컬럼을 도입했습니다.",
+                            solution2: "결정론적 처리 순서를 보장하기 위해 이 시퀀스 값으로 이벤트를 정렬했습니다."
+                        },
+                        issue2: {
+                            title: "2. 포인트 만료 타이밍 불일치",
+                            problemTitle: "문제",
+                            problem1: "외부 정산 제공업체는 00:03에서 00:10 사이에 포인트를 만료시켰습니다.",
+                            problem2: "내부 서비스는 00:02에 포인트 만료를 실행했습니다.",
+                            problem3: "이 타이밍 불일치로 인해 일시적인 잔액 불일치가 발생했습니다.",
+                            solutionTitle: "해결책",
+                            solution1: "재시도 전략을 재설계했습니다.",
+                            solution2: "<code>RETRY_COUNT</code>를 기반으로 재시도 간격을 5초에서 최대 10분까지 점진적으로 늘렸습니다.",
+                            solution3: "타이밍 차이로 인한 일시적 불일치를 흡수하도록 처리 로직을 개선했습니다."
+                        }
+                    }
+                }
+            }
+        };
+
+        // Get translation from page-local context
+        function getPageTranslation(path) {
+            const lang = getCurrentLanguage();
+            const keys = path.split('.');
+            let value = pageTranslations[lang];
+
+            for (const key of keys) {
+                if (value && typeof value === 'object') {
+                    value = value[key];
+                } else {
+                    return path;
+                }
+            }
+
+            return value || path;
+        }
+
+        // Update page content based on current language
+        function updatePageContent() {
+            const lang = getCurrentLanguage();
+            console.log(lang);
+            // Update elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update elements with data-i18n-html attribute
+            document.querySelectorAll('[data-i18n-html]').forEach(element => {
+                const key = element.getAttribute('data-i18n-html');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.innerHTML = translation;
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Check if global language functions exist, otherwise provide fallback
+        function getCurrentLanguage() {
+            // if (typeof window.getCurrentLanguage === 'function') {
+            //     return window.getCurrentLanguage();
+            // }
+            // Fallback: check localStorage
+            const saved = localStorage.getItem('preferredLanguage');
+            return (saved === 'ko' || saved === 'en') ? saved : 'en';
+        }
+
+        // Initialize page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMC')
+            updatePageContent();
+
+            // Listen for language changes (if global switcher exists)
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'preferredLanguage') {
+                    updatePageContent();
+                }
+            });
+
+            // Also listen for custom language change event
+            document.addEventListener('languageChanged', function() {
+                updatePageContent();
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

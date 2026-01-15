@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <title data-i18n="page.title">Cache Strategy for Read-heavy Configuration Data Case Study | Eunmi Kong</title>
     <link rel="icon" type="image/png" href="IMG_1926.png">
     <link rel="apple-touch-icon" href="IMG_1926.png">
     <link rel="stylesheet" href="style.css">
@@ -13,69 +13,206 @@
 <body>
     <div class="page" role="document">
         <div class="case-study-container">
-            <a href="index.html#experience" class="back-link">
+            <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                 ← Back to Portfolio
             </a>
 
             <div class="case-study-header">
-                <h1 class="case-study-title">Cache Strategy for Read-heavy Configuration Data</h1>
+                <h1 class="case-study-title" data-i18n="page.mainTitle">Cache Strategy for Read-heavy Configuration Data</h1>
             </div>
 
             <div class="overview-box">
-                <p>
+                <p data-i18n="page.overview">
                     This page explains how I selected a local caching strategy instead of Redis to reduce database load and eliminate unnecessary overhead for frequently read data.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2>Context</h2>
+                <h2 data-i18n="page.context.title">Context</h2>
                 <ul>
-                    <li> Configuration data such as attendance rules, event settings, and operational notices</li>
-                    <li> Frequently read but rarely updated</li>
-                    <li> Caused unnecessary DB connection usage during peak traffic</li>
+                    <li data-i18n="page.context.item1"> Configuration data such as attendance rules, event settings, and operational notices</li>
+                    <li data-i18n="page.context.item2"> Frequently read but rarely updated</li>
+                    <li data-i18n="page.context.item3"> Caused unnecessary DB connection usage during peak traffic</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Design Decision</h2>
+                <h2 data-i18n="page.design.title">Design Decision</h2>
                 <ul>
-                    <li> Applied local caching (Ehcache) since the data changes infrequently and does not require strong consistency</li>
-                    <li> Chose Ehcache over Redis to:
+                    <li data-i18n="page.design.item1"> Applied local caching (Ehcache) since the data changes infrequently and does not require strong consistency</li>
+                    <li data-i18n="page.design.item2"> Chose Ehcache over Redis to:
                     <ul>
-                        <li> Eliminate network overhead</li>
-                        <li> Minimize operational complexity</li>
+                        <li data-i18n="page.design.item2_1"> Eliminate network overhead</li>
+                        <li data-i18n="page.design.item2_2"> Minimize operational complexity</li>
                     </ul>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Implementation</h2>
+                <h2 data-i18n="page.implementation.title">Implementation</h2>
                 <ul>
-                    <li>Implemented caching using Spring Cache Abstraction with Ehcache</li>
-                    <li>Applied TTL-based eviction policy</li>
-                    <li>Provided admin-triggered cache invalidation</li>
+                    <li data-i18n="page.implementation.item1">Implemented caching using Spring Cache Abstraction with Ehcache</li>
+                    <li data-i18n="page.implementation.item2">Applied TTL-based eviction policy</li>
+                    <li data-i18n="page.implementation.item3">Provided admin-triggered cache invalidation</li>
                     <ul>
-                        <li> Cache is refreshed when notices are published or unpublished</li>
+                        <li data-i18n="page.implementation.item3_1"> Cache is refreshed when notices are published or unpublished</li>
                     </ul>
                 </ul>
             </div>
 
              <div class="content-section">
-                <h2>Result</h2>
+                <h2 data-i18n="page.result.title">Result</h2>
                 <ul>
-                    <li>Eliminated DB access for configuration-related read APIs</li>
-                    <li>Stabilized DB connection usage during peak hours</li>
-                    <li>Limited cache usage to configuration data only, minimizing data consistency risks</li>
+                    <li data-i18n="page.result.item1">Eliminated DB access for configuration-related read APIs</li>
+                    <li data-i18n="page.result.item2">Stabilized DB connection usage during peak hours</li>
+                    <li data-i18n="page.result.item3">Limited cache usage to configuration data only, minimizing data consistency risks</li>
                 </ul>
             </div>
             <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
-                <a href="index.html#experience" class="back-link">
+                <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                     ← Back to Portfolio
                 </a>
             </div>
         </div>
     </div>
 
+    <script>
+        // Page-local translations
+        const pageTranslations = {
+            en: {
+                page: {
+                    title: "Cache Strategy for Read-heavy Configuration Data Case Study | Eunmi Kong",
+                    backLink: "← Back to Portfolio",
+                    mainTitle: "Cache Strategy for Read-heavy Configuration Data",
+                    overview: "This page explains how I selected a local caching strategy instead of Redis to reduce database load and eliminate unnecessary overhead for frequently read data.",
+                    context: {
+                        title: "Context",
+                        item1: "Configuration data such as attendance rules, event settings, and operational notices",
+                        item2: "Frequently read but rarely updated",
+                        item3: "Caused unnecessary DB connection usage during peak traffic"
+                    },
+                    design: {
+                        title: "Design Decision",
+                        item1: "Applied local caching (Ehcache) since the data changes infrequently and does not require strong consistency",
+                        item2: "Chose Ehcache over Redis to:",
+                        item2_1: "Eliminate network overhead",
+                        item2_2: "Minimize operational complexity"
+                    },
+                    implementation: {
+                        title: "Implementation",
+                        item1: "Implemented caching using Spring Cache Abstraction with Ehcache",
+                        item2: "Applied TTL-based eviction policy",
+                        item3: "Provided admin-triggered cache invalidation",
+                        item3_1: "Cache is refreshed when notices are published or unpublished"
+                    },
+                    result: {
+                        title: "Result",
+                        item1: "Eliminated DB access for configuration-related read APIs",
+                        item2: "Stabilized DB connection usage during peak hours",
+                        item3: "Limited cache usage to configuration data only, minimizing data consistency risks"
+                    }
+                }
+            },
+            ko: {
+                page: {
+                    title: "읽기 중심 설정 데이터를 위한 캐시 전략 사례 연구 | 공은미",
+                    backLink: "← 포트폴리오로 돌아가기",
+                    mainTitle: "읽기 중심 설정 데이터를 위한 캐시 전략",
+                    overview: "이 페이지는 자주 읽히는 데이터에 대한 데이터베이스 부하를 줄이고 불필요한 오버헤드를 제거하기 위해 Redis 대신 로컬 캐싱 전략을 선택한 방법을 설명합니다.",
+                    context: {
+                        title: "맥락",
+                        item1: "출석 규칙, 이벤트 설정, 운영 공지와 같은 설정 데이터",
+                        item2: "자주 읽히지만 거의 업데이트되지 않음",
+                        item3: "피크 트래픽 시 불필요한 DB 연결 사용을 유발"
+                    },
+                    design: {
+                        title: "설계 결정",
+                        item1: "데이터가 자주 변경되지 않고 강한 일관성을 요구하지 않으므로 로컬 캐싱(Ehcache) 적용",
+                        item2: "Redis 대신 Ehcache를 선택한 이유:",
+                        item2_1: "네트워크 오버헤드 제거",
+                        item2_2: "운영 복잡성 최소화"
+                    },
+                    implementation: {
+                        title: "구현",
+                        item1: "Spring Cache Abstraction과 Ehcache를 사용하여 캐싱 구현",
+                        item2: "TTL 기반 제거 정책 적용",
+                        item3: "관리자 트리거 캐시 무효화 제공",
+                        item3_1: "공지가 게시되거나 게시 취소될 때 캐시 갱신"
+                    },
+                    result: {
+                        title: "결과",
+                        item1: "설정 관련 읽기 API에 대한 DB 액세스 제거",
+                        item2: "피크 시간대 DB 연결 사용 안정화",
+                        item3: "캐시 사용을 설정 데이터로만 제한하여 데이터 일관성 위험 최소화"
+                    }
+                }
+            }
+        };
+
+        // Get translation by path
+        function getPageTranslation(path) {
+            const lang = getCurrentLanguage();
+            const keys = path.split('.');
+            let value = pageTranslations[lang];
+
+            for (const key of keys) {
+                if (value && typeof value === 'object') {
+                    value = value[key];
+                } else {
+                    return null;
+                }
+            }
+
+            return value;
+        }
+
+        // Update all translatable content
+        function updatePageContent() {
+            const lang = getCurrentLanguage();
+
+            // Update title
+            document.title = getPageTranslation('page.title') || document.title;
+
+            // Update elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update elements with data-i18n-html
+            document.querySelectorAll('[data-i18n-html]').forEach(element => {
+                const key = element.getAttribute('data-i18n-html');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.innerHTML = translation;
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Get current language from localStorage
+        function getCurrentLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            return (saved === 'ko' || saved === 'en') ? saved : 'en';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePageContent();
+
+            // Listen for language changes from other pages
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'preferredLanguage') {
+                    updatePageContent();
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

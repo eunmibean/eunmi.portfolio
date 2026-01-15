@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <title data-i18n="page.title">Point Expiration Issue Resolution Case Study | Eunmi Kong</title>
     <link rel="icon" type="image/png" href="IMG_1926.png">
     <link rel="apple-touch-icon" href="IMG_1926.png">
     <link rel="stylesheet" href="style.css">
@@ -13,90 +13,255 @@
 <body>
     <div class="page" role="document">
         <div class="case-study-container">
-            <a href="index.html#experience" class="back-link">
+            <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                 ← Back to Portfolio
             </a>
 
             <div class="case-study-header">
-                <h1 class="case-study-title">Point Expiration Issue Resolution</h1>
+                <h1 class="case-study-title" data-i18n="page.mainTitle">Point Expiration Issue Resolution</h1>
             </div>
 
             <div class="overview-box">
-                <p>
+                <p data-i18n="page.overview">
                     This page describes how I identified and redesigned a flawed point expiration system that had accumulated long-standing inconsistencies over time.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2>Problem</h2>
+                <h2 data-i18n="page.problem.title">Problem</h2>
                 <ul>
-                    <li>Points were not being expired even after their expiration date.</li>
-                    <li>The system determined expiration by comparing:</li>
+                    <li data-i18n="page.problem.item1">Points were not being expired even after their expiration date.</li>
+                    <li data-i18n="page.problem.item2">The system determined expiration by comparing:</li>
                     <ul>
-                        <li>total earned points</li>
-                        <li>total spent points</li>
-                        <li>expiration candidate points</li>
+                        <li data-i18n="page.problem.item2_1">total earned points</li>
+                        <li data-i18n="page.problem.item2_2">total spent points</li>
+                        <li data-i18n="page.problem.item2_3">expiration candidate points</li>
                     </ul>
-                    <li>Logic used:</li>
+                    <li data-i18n="page.problem.item3">Logic used:</li>
                     <ul>
-                        <li><code>(TotalEarnedPoints-TotalSpentPoints) ≥ExpirationCandidatePoints →Expire Otherwise →Do not expire</code></li>
+                        <li data-i18n-html="page.problem.item3_1"><code>(TotalEarnedPoints-TotalSpentPoints) ≥ExpirationCandidatePoints →Expire Otherwise →Do not expire</code></li>
                     </ul>
-                    <li>Expiration candidates were processed by a monthly batch job running at 00:20 on the 1st of each month.</li>
-                    <li>However, earning and spending history older than 13 months was moved to a backup database, making it impossible to accurately calculate expiration candidates using aggregated totals.</li>
-                    <li>Tracing individual earning–spending mappings per user was structurally infeasible due to system design limitations.</li>
+                    <li data-i18n="page.problem.item4">Expiration candidates were processed by a monthly batch job running at 00:20 on the 1st of each month.</li>
+                    <li data-i18n="page.problem.item5">However, earning and spending history older than 13 months was moved to a backup database, making it impossible to accurately calculate expiration candidates using aggregated totals.</li>
+                    <li data-i18n="page.problem.item6">Tracing individual earning–spending mappings per user was structurally infeasible due to system design limitations.</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Root Cause</h2>
+                <h2 data-i18n="page.rootCause.title">Root Cause</h2>
                 <ul>
-                    <li>Aggregation-based expiration logic depended on historical data that was no longer available in the primary database.</li>
-                    <li>As a result, expired-but-unused points were incorrectly retained.</li>
-                    <li>Monthly expiration timing also caused mismatches with external settlement systems.</li>
+                    <li data-i18n="page.rootCause.item1">Aggregation-based expiration logic depended on historical data that was no longer available in the primary database.</li>
+                    <li data-i18n="page.rootCause.item2">As a result, expired-but-unused points were incorrectly retained.</li>
+                    <li data-i18n="page.rootCause.item3">Monthly expiration timing also caused mismatches with external settlement systems.</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Solution</h2>
+                <h2 data-i18n="page.solution.title">Solution</h2>
                     <ul>
-                        <li>Changed the expiration batch job from monthly to daily execution.</li>
-                        <li>Recalculated expiration candidates by:</li>
+                        <li data-i18n="page.solution.item1">Changed the expiration batch job from monthly to daily execution.</li>
+                        <li data-i18n="page.solution.item2">Recalculated expiration candidates by:</li>
                         <ul>
-                            <li> Re-importing relevant user history from the backup database</li>
-                            <li> Recomputing expiration targets based on actual expiration dates</li>
+                            <li data-i18n="page.solution.item2_1"> Re-importing relevant user history from the backup database</li>
+                            <li data-i18n="page.solution.item2_2"> Recomputing expiration targets based on actual expiration dates</li>
                         </ul>
-                        <li>Introduced a new expiration tracking table with explicit state columns:</li>
+                        <li data-i18n="page.solution.item3">Introduced a new expiration tracking table with explicit state columns:</li>
                         <ul>
-                            <li>EARNED, SPENT, USED, EXPIRED, CANCELED</li>
+                            <li data-i18n="page.solution.item3_1">EARNED, SPENT, USED, EXPIRED, CANCELED</li>
                         </ul>
-                        <li>Ensured that:</li>
+                        <li data-i18n="page.solution.item4">Ensured that:</li>
                         <ul>
-                            <li> Points are used in order of earliest expiration</li>
-                            <li> Points are expired strictly by expiration date</li>
+                            <li data-i18n="page.solution.item4_1"> Points are used in order of earliest expiration</li>
+                            <li data-i18n="page.solution.item4_2"> Points are expired strictly by expiration date</li>
                         </ul>
-                        <li>Expired all remaining points that should have already expired but were not previously processed.</li>
+                        <li data-i18n="page.solution.item5">Expired all remaining points that should have already expired but were not previously processed.</li>
                     </ul>
             </div>
 
             <div class="content-section">
-                <h2>Impact</h2>                
+                <h2 data-i18n="page.impact.title">Impact</h2>
                     <ul>
-                        <li> Recovered approximately ₩1B worth of expired points, reducing operational liability.</li>
-                        <li> Eliminated user confusion by aligning actual expiration dates with daily expiration processing.</li>
-                        <li> Resolved inconsistencies with external settlement systems caused by mismatched expiration timing. </li>
-                        <li> Improved data reliability by replacing aggregation-based logic with expiration-date–driven state management. </li>
-                        <li> Established a scalable foundation for future expiration and settlement-related features.</li>
+                        <li data-i18n="page.impact.item1"> Recovered approximately ₩1B worth of expired points, reducing operational liability.</li>
+                        <li data-i18n="page.impact.item2"> Eliminated user confusion by aligning actual expiration dates with daily expiration processing.</li>
+                        <li data-i18n="page.impact.item3"> Resolved inconsistencies with external settlement systems caused by mismatched expiration timing. </li>
+                        <li data-i18n="page.impact.item4"> Improved data reliability by replacing aggregation-based logic with expiration-date–driven state management. </li>
+                        <li data-i18n="page.impact.item5"> Established a scalable foundation for future expiration and settlement-related features.</li>
                     </ul>
             </div>
 
             <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
-                <a href="index.html#experience" class="back-link">
+                <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                     ← Back to Portfolio
                 </a>
             </div>
         </div>
     </div>
 
+    <script>
+        // Page-local translations
+        const pageTranslations = {
+            en: {
+                page: {
+                    title: "Point Expiration Issue Resolution Case Study | Eunmi Kong",
+                    backLink: "← Back to Portfolio",
+                    mainTitle: "Point Expiration Issue Resolution",
+                    overview: "This page describes how I identified and redesigned a flawed point expiration system that had accumulated long-standing inconsistencies over time.",
+                    problem: {
+                        title: "Problem",
+                        item1: "Points were not being expired even after their expiration date.",
+                        item2: "The system determined expiration by comparing:",
+                        item2_1: "total earned points",
+                        item2_2: "total spent points",
+                        item2_3: "expiration candidate points",
+                        item3: "Logic used:",
+                        item3_1: "<code>(TotalEarnedPoints-TotalSpentPoints) ≥ExpirationCandidatePoints →Expire Otherwise →Do not expire</code>",
+                        item4: "Expiration candidates were processed by a monthly batch job running at 00:20 on the 1st of each month.",
+                        item5: "However, earning and spending history older than 13 months was moved to a backup database, making it impossible to accurately calculate expiration candidates using aggregated totals.",
+                        item6: "Tracing individual earning–spending mappings per user was structurally infeasible due to system design limitations."
+                    },
+                    rootCause: {
+                        title: "Root Cause",
+                        item1: "Aggregation-based expiration logic depended on historical data that was no longer available in the primary database.",
+                        item2: "As a result, expired-but-unused points were incorrectly retained.",
+                        item3: "Monthly expiration timing also caused mismatches with external settlement systems."
+                    },
+                    solution: {
+                        title: "Solution",
+                        item1: "Changed the expiration batch job from monthly to daily execution.",
+                        item2: "Recalculated expiration candidates by:",
+                        item2_1: "Re-importing relevant user history from the backup database",
+                        item2_2: "Recomputing expiration targets based on actual expiration dates",
+                        item3: "Introduced a new expiration tracking table with explicit state columns:",
+                        item3_1: "EARNED, SPENT, USED, EXPIRED, CANCELED",
+                        item4: "Ensured that:",
+                        item4_1: "Points are used in order of earliest expiration",
+                        item4_2: "Points are expired strictly by expiration date",
+                        item5: "Expired all remaining points that should have already expired but were not previously processed."
+                    },
+                    impact: {
+                        title: "Impact",
+                        item1: "Recovered approximately ₩1B worth of expired points, reducing operational liability.",
+                        item2: "Eliminated user confusion by aligning actual expiration dates with daily expiration processing.",
+                        item3: "Resolved inconsistencies with external settlement systems caused by mismatched expiration timing.",
+                        item4: "Improved data reliability by replacing aggregation-based logic with expiration-date–driven state management.",
+                        item5: "Established a scalable foundation for future expiration and settlement-related features."
+                    }
+                }
+            },
+            ko: {
+                page: {
+                    title: "포인트 만료 문제 해결 사례 연구 | 공은미",
+                    backLink: "← 포트폴리오로 돌아가기",
+                    mainTitle: "포인트 만료 문제 해결",
+                    overview: "이 페이지는 장기간 누적된 불일치를 갖고 있던 결함이 있는 포인트 만료 시스템을 식별하고 재설계한 방법을 설명합니다.",
+                    problem: {
+                        title: "문제점",
+                        item1: "포인트가 만료일이 지났음에도 만료되지 않음.",
+                        item2: "시스템은 다음을 비교하여 만료를 결정:",
+                        item2_1: "총 적립 포인트",
+                        item2_2: "총 사용 포인트",
+                        item2_3: "만료 대상 포인트",
+                        item3: "사용된 로직:",
+                        item3_1: "<code>(총적립포인트-총사용포인트) ≥만료대상포인트 →만료 그렇지않으면 →만료하지않음</code>",
+                        item4: "만료 대상은 매월 1일 00:20에 실행되는 월간 배치 작업에서 처리됨.",
+                        item5: "그러나 13개월 이상 된 적립 및 사용 이력은 백업 데이터베이스로 이동되어, 집계된 합계를 사용하여 만료 대상을 정확하게 계산하는 것이 불가능했음.",
+                        item6: "사용자별 개별 적립-사용 매핑을 추적하는 것은 시스템 설계 한계로 인해 구조적으로 불가능했음."
+                    },
+                    rootCause: {
+                        title: "근본 원인",
+                        item1: "집계 기반 만료 로직이 더 이상 주 데이터베이스에서 사용할 수 없는 히스토리 데이터에 의존.",
+                        item2: "결과적으로 만료되었지만 사용되지 않은 포인트가 잘못 유지됨.",
+                        item3: "월간 만료 타이밍으로 인해 외부 정산 시스템과의 불일치도 발생."
+                    },
+                    solution: {
+                        title: "해결방안",
+                        item1: "만료 배치 작업을 월간에서 일간 실행으로 변경.",
+                        item2: "다음을 통해 만료 대상을 재계산:",
+                        item2_1: "백업 데이터베이스에서 관련 사용자 이력 재가져오기",
+                        item2_2: "실제 만료일 기준으로 만료 대상 재계산",
+                        item3: "명시적 상태 컬럼을 가진 새로운 만료 추적 테이블 도입:",
+                        item3_1: "EARNED, SPENT, USED, EXPIRED, CANCELED",
+                        item4: "다음을 보장:",
+                        item4_1: "포인트는 가장 빠른 만료 순서대로 사용",
+                        item4_2: "포인트는 만료일 기준으로 엄격하게 만료",
+                        item5: "이미 만료되었어야 하지만 이전에 처리되지 않은 모든 남은 포인트를 만료 처리."
+                    },
+                    impact: {
+                        title: "영향",
+                        item1: "약 10억원 상당의 만료 포인트를 회수하여 운영 부채 감소.",
+                        item2: "실제 만료일과 일간 만료 처리를 일치시켜 사용자 혼란 제거.",
+                        item3: "만료 타이밍 불일치로 인한 외부 정산 시스템과의 불일치 해결.",
+                        item4: "집계 기반 로직을 만료일 중심 상태 관리로 대체하여 데이터 신뢰성 향상.",
+                        item5: "향후 만료 및 정산 관련 기능을 위한 확장 가능한 기반 확립."
+                    }
+                }
+            }
+        };
+
+        // Get translation by path
+        function getPageTranslation(path) {
+            const lang = getCurrentLanguage();
+            const keys = path.split('.');
+            let value = pageTranslations[lang];
+
+            for (const key of keys) {
+                if (value && typeof value === 'object') {
+                    value = value[key];
+                } else {
+                    return null;
+                }
+            }
+
+            return value;
+        }
+
+        // Update all translatable content
+        function updatePageContent() {
+            const lang = getCurrentLanguage();
+
+            // Update title
+            document.title = getPageTranslation('page.title') || document.title;
+
+            // Update elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update elements with data-i18n-html
+            document.querySelectorAll('[data-i18n-html]').forEach(element => {
+                const key = element.getAttribute('data-i18n-html');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.innerHTML = translation;
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Get current language from localStorage
+        function getCurrentLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            return (saved === 'ko' || saved === 'en') ? saved : 'en';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePageContent();
+
+            // Listen for language changes from other pages
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'preferredLanguage') {
+                    updatePageContent();
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <title data-i18n="page.title">Spring Boot 2.x to 3.x Migration Case Study | Eunmi Kong</title>
     <link rel="icon" type="image/png" href="IMG_1926.png">
     <link rel="apple-touch-icon" href="IMG_1926.png">
     <link rel="stylesheet" href="style.css">
@@ -12,69 +12,220 @@
 <body>
     <div class="page" role="document">
         <div class="case-study-container">
-            <a href="index.html#experience" class="back-link">
+            <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                 ← Back to Portfolio
             </a>
 
             <div class="case-study-header">
-                <h1 class="case-study-title">ISMS Security Hardening & Vulnerability Remediation</h1>
+                <h1 class="case-study-title" data-i18n="page.mainTitle">ISMS Security Hardening & Vulnerability Remediation</h1>
             </div>
 
             <div class="overview-box">
-                <p>
+                <p data-i18n="page.overview">
                     This page describes a major framework upgrade where I migrated a production system from Spring Boot 2.x to 3.x to address security risks and improve maintainability.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2>Context</h2>
+                <h2 data-i18n="page.context.title">Context</h2>
                 <ul>
-                    <li> Legacy system running on Spring Boot 2.x and Java 8</li>
-                    <li> Required to address security vulnerabilities and long-term maintainability</li>
-                    <li> Major breaking changes introduced in Spring Boot 3.x</li>
+                    <li data-i18n="page.context.item1"> Legacy system running on Spring Boot 2.x and Java 8</li>
+                    <li data-i18n="page.context.item2"> Required to address security vulnerabilities and long-term maintainability</li>
+                    <li data-i18n="page.context.item3"> Major breaking changes introduced in Spring Boot 3.x</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Key Migration Challenges & Decisions</h2>
-                <h3>1. Jakarta EE Migration</h3>
+                <h2 data-i18n="page.challenges.title">Key Migration Challenges & Decisions</h2>
+                <h3 data-i18n="page.challenges.section1.title">1. Jakarta EE Migration</h3>
                 <ul>
-                    <li> Updated all `javax.*` references to `jakarta.*`</li>
-                    <li> Verified framework and library compatibility across the codebase</li>
+                    <li data-i18n="page.challenges.section1.item1"> Updated all `javax.*` references to `jakarta.*`</li>
+                    <li data-i18n="page.challenges.section1.item2"> Verified framework and library compatibility across the codebase</li>
                 </ul>
 
-                <h3>Java 17 Upgrade</h3>
+                <h3 data-i18n="page.challenges.section2.title">Java 17 Upgrade</h3>
                 <ul>
-                    <li> Migrated runtime from Java 8 to 17</li>
-                    <li> Adopted modern language features (e.g., text blocks) where readability improved</li>
+                    <li data-i18n="page.challenges.section2.item1"> Migrated runtime from Java 8 to 17</li>
+                    <li data-i18n="page.challenges.section2.item2"> Adopted modern language features (e.g., text blocks) where readability improved</li>
                 </ul>
 
-                <h3>ORM & Persistence Changes</h3>
+                <h3 data-i18n="page.challenges.section3.title">ORM & Persistence Changes</h3>
                 <ul>
-                    <li> Addressed Hibernate 6 behavior changes and removed deprecated configuration</li>
-                    <li> Ensured ID generation and persistence behavior remained consistent</li>
+                    <li data-i18n="page.challenges.section3.item1"> Addressed Hibernate 6 behavior changes and removed deprecated configuration</li>
+                    <li data-i18n="page.challenges.section3.item2"> Ensured ID generation and persistence behavior remained consistent</li>
                 </ul>
 
-                <h3>Infrastructure & Runtime Behavior</h3>
+                <h3 data-i18n="page.challenges.section4.title">Infrastructure & Runtime Behavior</h3>
                 <ul>
-                    <li> Explicitly configured shutdown behavior due to changes in Spring Boot 3 defaults</li>
-                    <li> Reviewed HTTP client usage and clarified HTTP/2 configuration assumptions</li>
+                    <li data-i18n="page.challenges.section4.item1"> Explicitly configured shutdown behavior due to changes in Spring Boot 3 defaults</li>
+                    <li data-i18n="page.challenges.section4.item2"> Reviewed HTTP client usage and clarified HTTP/2 configuration assumptions</li>
                 </ul>
 
-                <h3>Test & Tooling Adjustments</h3>
+                <h3 data-i18n="page.challenges.section5.title">Test & Tooling Adjustments</h3>
                 <ul>
-                    <li> Adapted test configuration due to deprecation of @MockBean and @SpyBean</li>
+                    <li data-i18n="page.challenges.section5.item1"> Adapted test configuration due to deprecation of @MockBean and @SpyBean</li>
                 </ul>
             </div>
 
             <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
-                <a href="index.html#experience" class="back-link">
+                <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                     ← Back to Portfolio
                 </a>
             </div>
         </div>
     </div>
 
+    <script>
+        // Page-local translations
+        const pageTranslations = {
+            en: {
+                page: {
+                    title: "Spring Boot 2.x to 3.x Migration Case Study | Eunmi Kong",
+                    backLink: "← Back to Portfolio",
+                    mainTitle: "ISMS Security Hardening & Vulnerability Remediation",
+                    overview: "This page describes a major framework upgrade where I migrated a production system from Spring Boot 2.x to 3.x to address security risks and improve maintainability.",
+                    context: {
+                        title: "Context",
+                        item1: "Legacy system running on Spring Boot 2.x and Java 8",
+                        item2: "Required to address security vulnerabilities and long-term maintainability",
+                        item3: "Major breaking changes introduced in Spring Boot 3.x"
+                    },
+                    challenges: {
+                        title: "Key Migration Challenges & Decisions",
+                        section1: {
+                            title: "1. Jakarta EE Migration",
+                            item1: "Updated all `javax.*` references to `jakarta.*`",
+                            item2: "Verified framework and library compatibility across the codebase"
+                        },
+                        section2: {
+                            title: "Java 17 Upgrade",
+                            item1: "Migrated runtime from Java 8 to 17",
+                            item2: "Adopted modern language features (e.g., text blocks) where readability improved"
+                        },
+                        section3: {
+                            title: "ORM & Persistence Changes",
+                            item1: "Addressed Hibernate 6 behavior changes and removed deprecated configuration",
+                            item2: "Ensured ID generation and persistence behavior remained consistent"
+                        },
+                        section4: {
+                            title: "Infrastructure & Runtime Behavior",
+                            item1: "Explicitly configured shutdown behavior due to changes in Spring Boot 3 defaults",
+                            item2: "Reviewed HTTP client usage and clarified HTTP/2 configuration assumptions"
+                        },
+                        section5: {
+                            title: "Test & Tooling Adjustments",
+                            item1: "Adapted test configuration due to deprecation of @MockBean and @SpyBean"
+                        }
+                    }
+                }
+            },
+            ko: {
+                page: {
+                    title: "Spring Boot 2.x에서 3.x로 마이그레이션 사례 연구 | 공은미",
+                    backLink: "← 포트폴리오로 돌아가기",
+                    mainTitle: "ISMS 보안 강화 및 취약점 개선",
+                    overview: "이 페이지는 보안 위험을 해결하고 유지보수성을 개선하기 위해 운영 시스템을 Spring Boot 2.x에서 3.x로 마이그레이션한 주요 프레임워크 업그레이드를 설명합니다.",
+                    context: {
+                        title: "맥락",
+                        item1: "Spring Boot 2.x 및 Java 8에서 실행되는 레거시 시스템",
+                        item2: "보안 취약점 및 장기 유지보수성 해결 필요",
+                        item3: "Spring Boot 3.x에서 도입된 주요 변경사항"
+                    },
+                    challenges: {
+                        title: "주요 마이그레이션 과제 및 결정사항",
+                        section1: {
+                            title: "1. Jakarta EE 마이그레이션",
+                            item1: "모든 `javax.*` 참조를 `jakarta.*`로 업데이트",
+                            item2: "코드베이스 전체에서 프레임워크 및 라이브러리 호환성 검증"
+                        },
+                        section2: {
+                            title: "Java 17 업그레이드",
+                            item1: "런타임을 Java 8에서 17로 마이그레이션",
+                            item2: "가독성이 향상되는 곳에 최신 언어 기능(예: 텍스트 블록) 채택"
+                        },
+                        section3: {
+                            title: "ORM 및 영속성 변경사항",
+                            item1: "Hibernate 6 동작 변경사항 해결 및 더 이상 사용되지 않는 구성 제거",
+                            item2: "ID 생성 및 영속성 동작이 일관되게 유지되도록 보장"
+                        },
+                        section4: {
+                            title: "인프라 및 런타임 동작",
+                            item1: "Spring Boot 3 기본값 변경으로 인해 종료 동작 명시적 구성",
+                            item2: "HTTP 클라이언트 사용 검토 및 HTTP/2 구성 가정 명확화"
+                        },
+                        section5: {
+                            title: "테스트 및 도구 조정",
+                            item1: "@MockBean 및 @SpyBean 사용 중단으로 인해 테스트 구성 조정"
+                        }
+                    }
+                }
+            }
+        };
+
+        // Get translation by path
+        function getPageTranslation(path) {
+            const lang = getCurrentLanguage();
+            const keys = path.split('.');
+            let value = pageTranslations[lang];
+
+            for (const key of keys) {
+                if (value && typeof value === 'object') {
+                    value = value[key];
+                } else {
+                    return null;
+                }
+            }
+
+            return value;
+        }
+
+        // Update all translatable content
+        function updatePageContent() {
+            const lang = getCurrentLanguage();
+
+            // Update title
+            document.title = getPageTranslation('page.title') || document.title;
+
+            // Update elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update elements with data-i18n-html
+            document.querySelectorAll('[data-i18n-html]').forEach(element => {
+                const key = element.getAttribute('data-i18n-html');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.innerHTML = translation;
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Get current language from localStorage
+        function getCurrentLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            return (saved === 'ko' || saved === 'en') ? saved : 'en';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePageContent();
+
+            // Listen for language changes from other pages
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'preferredLanguage') {
+                    updatePageContent();
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

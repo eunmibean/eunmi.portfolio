@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <title data-i18n="page.title">Performance Optimization Case Study | Eunmi Kong</title>
     <link rel="icon" type="image/png" href="IMG_1926.png">
     <link rel="apple-touch-icon" href="IMG_1926.png">
     <link rel="stylesheet" href="style.css">
@@ -13,76 +13,229 @@
 <body>
     <div class="page" role="document">
         <div class="case-study-container">
-            <a href="index.html#experience" class="back-link">
+            <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                 ← Back to Portfolio
             </a>
 
             <div class="case-study-header">
-                <h1 class="case-study-title">Performance Optimization Case</h1>
+                <h1 class="case-study-title" data-i18n="page.mainTitle">Performance Optimization Case</h1>
             </div>
 
             <div class="overview-box">
-                <p>
+                <p data-i18n="page.overview">
                     This page describes how I identified and resolved a critical database performance issue.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2>Problem</h2>
+                <h2 data-i18n="page.problem.title">Problem</h2>
                 <ul>
-                    <li> A frequently executed query on a large table was causing severe latency</li>
-                    <li> Execution plan showed Full Table Scan</li>
-                    <li> Query latency reached ~16 seconds under production data volume</li>
+                    <li data-i18n="page.problem.item1"> A frequently executed query on a large table was causing severe latency</li>
+                    <li data-i18n="page.problem.item2"> Execution plan showed Full Table Scan</li>
+                    <li data-i18n="page.problem.item3"> Query latency reached ~16 seconds under production data volume</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Analysis</h2>
+                <h2 data-i18n="page.analysis.title">Analysis</h2>
                 <ul>
-                    <li> Reviewed slow query logs with a DBA</li>
-                    <li> Compared execution plans before and after optimization</li>
-                    <li> Identified mismatch between existing indexes and actual service-layer query conditions</li>
+                    <li data-i18n="page.analysis.item1"> Reviewed slow query logs with a DBA</li>
+                    <li data-i18n="page.analysis.item2"> Compared execution plans before and after optimization</li>
+                    <li data-i18n="page.analysis.item3"> Identified mismatch between existing indexes and actual service-layer query conditions</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Solution</h2>
-                <h3>Index Optimization</h3>
+                <h2 data-i18n="page.solution.title">Solution</h2>
+                <h3 data-i18n="page.solution.section1.title">Index Optimization</h3>
                 <ul>
-                    <li> Redesigned indexes to match:</li>
+                    <li data-i18n="page.solution.section1.item1"> Redesigned indexes to match:</li>
                     <ul>
-                        <li> actual filtering conditions</li>
-                        <li> time-range based access patterns </li>
+                        <li data-i18n="page.solution.section1.item1_1"> actual filtering conditions</li>
+                        <li data-i18n="page.solution.section1.item1_2"> time-range based access patterns </li>
                     </ul>
-                    <li> Replaced inefficient scans with index-based access</li>
+                    <li data-i18n="page.solution.section1.item2"> Replaced inefficient scans with index-based access</li>
                 </ul>
 
-                <h3>Query Refinement</h3>
+                <h3 data-i18n="page.solution.section2.title">Query Refinement</h3>
                 <ul>
-                    <li> Adjusted query predicates to improve index selectivity</li>
-                    <li> Simplified query structure to reduce unnecessary scanning</li>
+                    <li data-i18n="page.solution.section2.item1"> Adjusted query predicates to improve index selectivity</li>
+                    <li data-i18n="page.solution.section2.item2"> Simplified query structure to reduce unnecessary scanning</li>
                 </ul>
             </div>
 
              <div class="content-section">
-                <h2>Result</h2> 
+                <h2 data-i18n="page.result.title">Result</h2>
                 <ul>
-                    <li> Query execution time improved from ~16 seconds → ~0.001 seconds </li>
-                    <li> Execution plan changed from: </li>
+                    <li data-i18n="page.result.item1"> Query execution time improved from ~16 seconds → ~0.001 seconds </li>
+                    <li data-i18n="page.result.item2"> Execution plan changed from: </li>
                     <ul>
-                        <li> Full Table Scan → Index / Range Scan </li>
-                        <li> Significantly reduced database load and improved API response time</li>
+                        <li data-i18n="page.result.item2_1"> Full Table Scan → Index / Range Scan </li>
+                        <li data-i18n="page.result.item2_2"> Significantly reduced database load and improved API response time</li>
                     </ul>
             </div>
 
             <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
-                <a href="index.html#experience" class="back-link">
+                <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                     ← Back to Portfolio
                 </a>
             </div>
         </div>
     </div>
 
+    <script>
+        // Page-local translations
+        const pageTranslations = {
+            en: {
+                page: {
+                    title: "Performance Optimization Case Study | Eunmi Kong",
+                    backLink: "← Back to Portfolio",
+                    mainTitle: "Performance Optimization Case",
+                    overview: "This page describes how I identified and resolved a critical database performance issue.",
+                    problem: {
+                        title: "Problem",
+                        item1: "A frequently executed query on a large table was causing severe latency",
+                        item2: "Execution plan showed Full Table Scan",
+                        item3: "Query latency reached ~16 seconds under production data volume"
+                    },
+                    analysis: {
+                        title: "Analysis",
+                        item1: "Reviewed slow query logs with a DBA",
+                        item2: "Compared execution plans before and after optimization",
+                        item3: "Identified mismatch between existing indexes and actual service-layer query conditions"
+                    },
+                    solution: {
+                        title: "Solution",
+                        section1: {
+                            title: "Index Optimization",
+                            item1: "Redesigned indexes to match:",
+                            item1_1: "actual filtering conditions",
+                            item1_2: "time-range based access patterns",
+                            item2: "Replaced inefficient scans with index-based access"
+                        },
+                        section2: {
+                            title: "Query Refinement",
+                            item1: "Adjusted query predicates to improve index selectivity",
+                            item2: "Simplified query structure to reduce unnecessary scanning"
+                        }
+                    },
+                    result: {
+                        title: "Result",
+                        item1: "Query execution time improved from ~16 seconds → ~0.001 seconds",
+                        item2: "Execution plan changed from:",
+                        item2_1: "Full Table Scan → Index / Range Scan",
+                        item2_2: "Significantly reduced database load and improved API response time"
+                    }
+                }
+            },
+            ko: {
+                page: {
+                    title: "성능 최적화 사례 연구 | 공은미",
+                    backLink: "← 포트폴리오로 돌아가기",
+                    mainTitle: "성능 최적화 사례",
+                    overview: "이 페이지는 중요한 데이터베이스 성능 문제를 식별하고 해결한 방법을 설명합니다.",
+                    problem: {
+                        title: "문제점",
+                        item1: "대용량 테이블에서 자주 실행되는 쿼리가 심각한 지연을 유발",
+                        item2: "실행 계획에서 Full Table Scan 확인",
+                        item3: "운영 데이터 볼륨에서 쿼리 지연이 약 16초에 도달"
+                    },
+                    analysis: {
+                        title: "분석",
+                        item1: "DBA와 함께 느린 쿼리 로그 검토",
+                        item2: "최적화 전후의 실행 계획 비교",
+                        item3: "기존 인덱스와 실제 서비스 레이어 쿼리 조건 간의 불일치 식별"
+                    },
+                    solution: {
+                        title: "해결방안",
+                        section1: {
+                            title: "인덱스 최적화",
+                            item1: "다음에 맞춰 인덱스 재설계:",
+                            item1_1: "실제 필터링 조건",
+                            item1_2: "시간 범위 기반 액세스 패턴",
+                            item2: "비효율적인 스캔을 인덱스 기반 액세스로 대체"
+                        },
+                        section2: {
+                            title: "쿼리 개선",
+                            item1: "인덱스 선택성을 개선하기 위해 쿼리 조건 조정",
+                            item2: "불필요한 스캔을 줄이기 위해 쿼리 구조 단순화"
+                        }
+                    },
+                    result: {
+                        title: "결과",
+                        item1: "쿼리 실행 시간이 약 16초 → 약 0.001초로 개선",
+                        item2: "실행 계획 변경:",
+                        item2_1: "Full Table Scan → Index / Range Scan",
+                        item2_2: "데이터베이스 부하가 크게 감소하고 API 응답 시간 개선"
+                    }
+                }
+            }
+        };
+
+        // Get translation by path
+        function getPageTranslation(path) {
+            const lang = getCurrentLanguage();
+            const keys = path.split('.');
+            let value = pageTranslations[lang];
+
+            for (const key of keys) {
+                if (value && typeof value === 'object') {
+                    value = value[key];
+                } else {
+                    return null;
+                }
+            }
+
+            return value;
+        }
+
+        // Update all translatable content
+        function updatePageContent() {
+            const lang = getCurrentLanguage();
+
+            // Update title
+            document.title = getPageTranslation('page.title') || document.title;
+
+            // Update elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update elements with data-i18n-html
+            document.querySelectorAll('[data-i18n-html]').forEach(element => {
+                const key = element.getAttribute('data-i18n-html');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.innerHTML = translation;
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Get current language from localStorage
+        function getCurrentLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            return (saved === 'ko' || saved === 'en') ? saved : 'en';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePageContent();
+
+            // Listen for language changes from other pages
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'preferredLanguage') {
+                    updatePageContent();
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

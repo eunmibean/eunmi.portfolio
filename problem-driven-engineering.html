@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event-Driven Architecture Case Study | Eunmi Kong</title>
+    <title data-i18n="page.title">Problem-Driven Engineering Case Study | Eunmi Kong</title>
     <link rel="icon" type="image/png" href="IMG_1926.png">
     <link rel="apple-touch-icon" href="IMG_1926.png">
     <link rel="stylesheet" href="style.css">
@@ -12,58 +12,183 @@
 <body>
     <div class="page" role="document">
         <div class="case-study-container">
-            <a href="index.html#experience" class="back-link">
+            <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                 ← Back to Portfolio
             </a>
 
             <div class="case-study-header">
-                <h1 class="case-study-title">Problem-Driven Engineering</h1>
+                <h1 class="case-study-title" data-i18n="page.mainTitle">Problem-Driven Engineering</h1>
             </div>
 
             <div class="overview-box">
-                <p>
+                <p data-i18n="page.overview">
                     This page highlights real production issues I personally identified, analyzed, and resolved while operating large-scale financial and point systems.
                     Rather than reacting only to reported incidents, I proactively investigated system behavior, performance metrics, and data inconsistencies to uncover hidden problems.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2>Problems</h2>
+                <h2 data-i18n="page.problems.title">Problems</h2>
                 <ul>
-                    <li> Withdrawal fee calculations were applied at a different timing than balance validation, causing user confusion and inconsistent results.</li>
-                    <li> Expired point statistics were calculated based on data insertion dates, which did not reflect the actual expiration execution dates.</li>
-                    <li> Monthly expiration reports lacked visibility into daily point expiration trends.</li>
-                    <li> User point earnings and usage were not traceable, making it impossible to accurately identify where points were earned, how they were spent, or reconcile balances by date.</li>
+                    <li data-i18n="page.problems.item1"> Withdrawal fee calculations were applied at a different timing than balance validation, causing user confusion and inconsistent results.</li>
+                    <li data-i18n="page.problems.item2"> Expired point statistics were calculated based on data insertion dates, which did not reflect the actual expiration execution dates.</li>
+                    <li data-i18n="page.problems.item3"> Monthly expiration reports lacked visibility into daily point expiration trends.</li>
+                    <li data-i18n="page.problems.item4"> User point earnings and usage were not traceable, making it impossible to accurately identify where points were earned, how they were spent, or reconcile balances by date.</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Solutions</h2>
+                <h2 data-i18n="page.solutions.title">Solutions</h2>
                 <ul>
-                    <li> Refined withdrawal validation logic to align fee calculation timing with available balance checks.
-                    <li> Introduced daily point expiration batches and reporting to replace coarse monthly statistics.</li>
-                    <li> Redefined expiration query criteria to reflect the actual expiration execution window.</li>
-                    <li> Implemented explicit earned–spent–expired mappings to enable accurate settlement tracking and historical reconciliation.</li>
+                    <li data-i18n="page.solutions.item1"> Refined withdrawal validation logic to align fee calculation timing with available balance checks.
+                    <li data-i18n="page.solutions.item2"> Introduced daily point expiration batches and reporting to replace coarse monthly statistics.</li>
+                    <li data-i18n="page.solutions.item3"> Redefined expiration query criteria to reflect the actual expiration execution window.</li>
+                    <li data-i18n="page.solutions.item4"> Implemented explicit earned–spent–expired mappings to enable accurate settlement tracking and historical reconciliation.</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2>Impact</h2>
+                <h2 data-i18n="page.impact.title">Impact</h2>
                     <ul>
-                        <li> Improved accuracy and predictability of withdrawal validation and settlement reports.</li>
-                        <li> Reduced reconciliation discrepancies when integrating with external settlement systems.</li>
-                        <li> Increased internal trust in financial data consistency and auditability.</li>
+                        <li data-i18n="page.impact.item1"> Improved accuracy and predictability of withdrawal validation and settlement reports.</li>
+                        <li data-i18n="page.impact.item2"> Reduced reconciliation discrepancies when integrating with external settlement systems.</li>
+                        <li data-i18n="page.impact.item3"> Increased internal trust in financial data consistency and auditability.</li>
                     </ul>
             </div>
 
             <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
-                <a href="index.html#experience" class="back-link">
+                <a href="index.html#experience" class="back-link" data-i18n="page.backLink">
                     ← Back to Portfolio
                 </a>
             </div>
         </div>
     </div>
 
+    <script>
+        // Page-local translations
+        const pageTranslations = {
+            en: {
+                page: {
+                    title: "Problem-Driven Engineering Case Study | Eunmi Kong",
+                    backLink: "← Back to Portfolio",
+                    mainTitle: "Problem-Driven Engineering",
+                    overview: "This page highlights real production issues I personally identified, analyzed, and resolved while operating large-scale financial and point systems. Rather than reacting only to reported incidents, I proactively investigated system behavior, performance metrics, and data inconsistencies to uncover hidden problems.",
+                    problems: {
+                        title: "Problems",
+                        item1: "Withdrawal fee calculations were applied at a different timing than balance validation, causing user confusion and inconsistent results.",
+                        item2: "Expired point statistics were calculated based on data insertion dates, which did not reflect the actual expiration execution dates.",
+                        item3: "Monthly expiration reports lacked visibility into daily point expiration trends.",
+                        item4: "User point earnings and usage were not traceable, making it impossible to accurately identify where points were earned, how they were spent, or reconcile balances by date."
+                    },
+                    solutions: {
+                        title: "Solutions",
+                        item1: "Refined withdrawal validation logic to align fee calculation timing with available balance checks.",
+                        item2: "Introduced daily point expiration batches and reporting to replace coarse monthly statistics.",
+                        item3: "Redefined expiration query criteria to reflect the actual expiration execution window.",
+                        item4: "Implemented explicit earned–spent–expired mappings to enable accurate settlement tracking and historical reconciliation."
+                    },
+                    impact: {
+                        title: "Impact",
+                        item1: "Improved accuracy and predictability of withdrawal validation and settlement reports.",
+                        item2: "Reduced reconciliation discrepancies when integrating with external settlement systems.",
+                        item3: "Increased internal trust in financial data consistency and auditability."
+                    }
+                }
+            },
+            ko: {
+                page: {
+                    title: "문제 중심 엔지니어링 사례 연구 | 공은미",
+                    backLink: "← 포트폴리오로 돌아가기",
+                    mainTitle: "문제 중심 엔지니어링",
+                    overview: "이 페이지는 대규모 금융 및 포인트 시스템을 운영하면서 제가 직접 식별하고, 분석하고, 해결한 실제 운영 문제들을 강조합니다. 보고된 장애에만 대응하기보다는, 시스템 동작, 성능 지표, 데이터 불일치를 선제적으로 조사하여 숨겨진 문제를 발견했습니다.",
+                    problems: {
+                        title: "문제점",
+                        item1: "출금 수수료 계산이 잔액 검증과 다른 시점에 적용되어 사용자 혼란과 불일치한 결과를 초래.",
+                        item2: "만료된 포인트 통계가 데이터 삽입 날짜를 기준으로 계산되어 실제 만료 실행 날짜를 반영하지 못함.",
+                        item3: "월간 만료 보고서는 일간 포인트 만료 추세에 대한 가시성 부족.",
+                        item4: "사용자 포인트 적립 및 사용이 추적 불가능하여 포인트가 어디서 적립되었는지, 어떻게 사용되었는지, 날짜별 잔액을 조정하는 것이 불가능."
+                    },
+                    solutions: {
+                        title: "해결방안",
+                        item1: "수수료 계산 타이밍을 사용 가능 잔액 검사와 일치시키도록 출금 검증 로직 개선.",
+                        item2: "거친 월간 통계를 대체하기 위해 일간 포인트 만료 배치 및 보고 도입.",
+                        item3: "실제 만료 실행 기간을 반영하도록 만료 쿼리 기준 재정의.",
+                        item4: "정확한 정산 추적 및 이력 조정을 가능하게 하는 명시적 적립-사용-만료 매핑 구현."
+                    },
+                    impact: {
+                        title: "영향",
+                        item1: "출금 검증 및 정산 보고서의 정확성과 예측 가능성 향상.",
+                        item2: "외부 정산 시스템과 통합 시 조정 불일치 감소.",
+                        item3: "금융 데이터 일관성 및 감사 가능성에 대한 내부 신뢰 증가."
+                    }
+                }
+            }
+        };
+
+        // Get translation by path
+        function getPageTranslation(path) {
+            const lang = getCurrentLanguage();
+            const keys = path.split('.');
+            let value = pageTranslations[lang];
+
+            for (const key of keys) {
+                if (value && typeof value === 'object') {
+                    value = value[key];
+                } else {
+                    return null;
+                }
+            }
+
+            return value;
+        }
+
+        // Update all translatable content
+        function updatePageContent() {
+            const lang = getCurrentLanguage();
+
+            // Update title
+            document.title = getPageTranslation('page.title') || document.title;
+
+            // Update elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update elements with data-i18n-html
+            document.querySelectorAll('[data-i18n-html]').forEach(element => {
+                const key = element.getAttribute('data-i18n-html');
+                const translation = getPageTranslation(key);
+                if (translation) {
+                    element.innerHTML = translation;
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Get current language from localStorage
+        function getCurrentLanguage() {
+            const saved = localStorage.getItem('preferredLanguage');
+            return (saved === 'ko' || saved === 'en') ? saved : 'en';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePageContent();
+
+            // Listen for language changes from other pages
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'preferredLanguage') {
+                    updatePageContent();
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
