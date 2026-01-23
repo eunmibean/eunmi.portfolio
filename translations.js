@@ -6,7 +6,7 @@ const translations = {
             title: "Emily (Eunmi) Kong | An initiative-driven software engineer",
             name: "Emily (Eunmi) Kong",
             subtitle: "Software Engineer — JAVA & Driven by curiosity, shaped by collaboration, and always building what matters.",
-            location: "Vancouver, Canada (planning move)"
+            // location: "Vancouver, Canada (planning move)"
         },
         // Summary Section
         summary: {
@@ -181,7 +181,7 @@ const translations = {
             title: "공은미 | 주도적으로 움직이는 소프트웨어 엔지니어",
             name: "공은미 (Emily Kong)",
             subtitle: "소프트웨어 엔지니어 — JAVA & 호기심으로 움직이고, 협업으로 성장하며, 의미 있는 것을 만들어갑니다.",
-            location: "밴쿠버, 캐나다 (이주 예정)"
+            // location: "밴쿠버, 캐나다 (이주 예정)"
         },
         // Summary Section
         summary: {
