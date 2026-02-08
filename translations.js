@@ -3,16 +3,15 @@ const translations = {
     en: {
         // Header
         header: {
-            title: "Eunmi Kong | An initiative-driven software engineer",
-            name: "Eunmi Kong",
+            title: "Eunmi (Emma) Kong | An initiative-driven software engineer",
+            name: "Eunmi (Emma) Kong",
             subtitle: "Software Engineer — JAVA & Driven by curiosity, shaped by collaboration, and always building what matters.",
-            // location: "Vancouver, Canada (planning move)"
+            location: "Vancouver, Canada (planning move)"
         },
         // Summary Section
         summary: {
             subtitle: "4+ years experience & Open to Work",
-            content: `Backend engineer who owned a Point Reward Service serving the three major telecom carriers (SKT, KT, LG), 
-                    designing event-driven architectures to decouple user experience from external settlement systems and ensure reliability at scale.`
+            content: `Backend Engineer (Java, Spring Boot) with 4+ years of experience building and operating an in-app point reward service within PASS, a telecom-backed consumer identity platform serving 42.3M MAU across Korea’s three major carriers (SKT, KT, LG). Designed and owned event-driven architectures to decouple user-facing services from external settlement systems, improving system reliability and scalability in high-volume production environments.`
         },
         // Key Skills
         keySkills: {
@@ -97,6 +96,7 @@ const translations = {
                     `Developed RESTful APIs using Spring Boot for an RPA automation platform.`,
                     `Improved development quality through test code implementation, refactoring, and architectural enhancements.`,
                     `Containerized and deployed services using Docker and Docker Compose to streamline server operations.`,
+                    `Produced messages to Kafka topics as part of a real-time data ingestion pipeline for smart farm IoT systems.`
                 ],
                 techStack: ""
             },
@@ -181,7 +181,7 @@ const translations = {
             title: "공은미 | 주도적으로 움직이는 소프트웨어 엔지니어",
             name: "공은미",
             subtitle: "소프트웨어 엔지니어 — JAVA & 호기심으로 움직이고, 협업으로 성장하며, 의미 있는 것을 만들어갑니다.",
-            // location: "밴쿠버, 캐나다 (이주 예정)"
+            location: "서울, 대한민국"
         },
         // Summary Section
         summary: {
@@ -271,6 +271,7 @@ const translations = {
                     `RPA 자동화 플랫폼을 위해 Spring Boot를 사용하여 RESTful API를 개발`,
                     `테스트 코드 구현, 리팩토링 및 아키텍처 개선을 통해 개발 품질을 향상`,
                     `Docker 및 Docker Compose를 사용하여 서비스를 컨테이너화하고 배포하여 서버 운영을 간소화`,
+                    `스마트팜 IoT 시스템으로 수집한 실시간 데이터를 Kafka 토픽에 메시지를 발행하는 작업 수행`
                 ],
                 techStack: ""
             },
